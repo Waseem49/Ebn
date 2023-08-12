@@ -4,6 +4,11 @@
 }
 body {
   width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 /* font-family: 'BioRhyme', serif;
 font-family: 'Cormorant', serif;
@@ -143,7 +148,6 @@ p {
   padding: 0 0.5rem;
 }
 
-
 /* about-section */
 #about-section {
   position: relative;
@@ -184,7 +188,7 @@ p {
   right: 0;
   box-shadow: rgb(96, 144, 197) 5px 5px 20px 0px;
 }
-#join { 
+#join {
   position: absolute;
   top: 5rem;
   right: 0;
@@ -193,7 +197,7 @@ p {
   font-size: 30px;
   background-image: ;
 }
-#join h1{
+#join h1 {
   font-family: "BioRhyme", serif;
   font-weight: bold;
   background-image: linear-gradient(
