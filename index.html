@@ -19,6 +19,7 @@
   </head>
   <body>
     <header>
+      <!-- Navbar-start -->
       <nav>
         <a href="index.html">Home</a>
         <ul>
@@ -30,8 +31,10 @@
         </ul>
         <li>Login</li>
       </nav>
+      <!-- Navbar-end -->
     </header>
     <section>
+      <!-- carousel-start -->
       <main>
         <div id="hero">
           <img
@@ -40,10 +43,81 @@
             id="cimg" />
           <i class="fa-solid fa-angle-left" id="left"></i>
           <i class="fa-solid fa-angle-right" id="right"></i>
+          <div id="btn">
+            <button id="getstart">Get Start</button>
+            <button id="getstart">Read More</button>
+          </div>
         </div>
       </main>
+      <!--  carousel-end -->
+    </section>
+    <section>
+      <div id="artisec">
+        <div id="article">
+          <div>
+            <img
+              src="https://media.istockphoto.com/id/1051616786/photo/digital-marketing-businessman-working-with-laptop-computer-tablet-and-smart-phone-modern.jpg?s=612x612&w=0&k=20&c=J2A6-q3RtqbISouQVBgpYtI1Ft9KeVsANUFHgG4Olbc="
+              alt="ecomm" />
+
+            <h2>E-Commerce</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+              similique impedit quidem non delectus.
+            </p>
+            <button>Get Start</button>
+          </div>
+          <div>
+            <img
+              src="https://media.istockphoto.com/id/1219980553/photo/online-news-on-a-smartphone-and-laptop-woman-reading-news-or-articles-in-a-mobile-phone.jpg?s=612x612&w=0&k=20&c=QodY8pXN5DbLs3-FhwWhhYKnsOE4Iixky_SwdGitwnQ="
+              alt="blog" />
+            <h2>Blog</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+              similique impedit quidem non delectus.
+            </p>
+            <button>Get Start</button>
+          </div>
+          <div>
+            <img
+              src="https://media.istockphoto.com/id/1177502660/photo/young-woman-reading-the-news-on-a-modern-tablet-computer-while-sitting-in-her-living-room.jpg?s=612x612&w=0&k=20&c=oEfXfMaKkgAVfshd7yk_bxGk2iQncWueLVlTL__gWWg="
+              alt="news" />
+            <h2>News</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+              similique impedit quidem non delectus.
+            </p>
+            <button>Get Start</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div id="about-section">
+        <div id="about1">
+          <h1>About Us</h1>
+          <div></div>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.quibusdam
+            consequuntur enim impedit explicabo sint inventore! Eveniet commodi
+            eaque suscipit obcaecati iste sed molestiae modi.
+          </p>
+          <!-- <br /> -->
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
+            quibusdam consequuntur enim impedit explicabo sint inventore!
+            Eveniet commodi eaque suscipit obcaecati iste sed molestiae
+            modi.quibusdam consequuntur enim impedit explicabo sint inventore!
+            Eveniet commodi eaque suscipit obcaecati iste sed molestiae modi.
+          </p>
+          <h3>EXPLORE MORE</h3>
+        </div>
+        <div id="about2">
+          <iframe src="" frameborder="0"></iframe>
+        </div>
+      </div>
     </section>
     <script>
+      //---------------------- carousel-start
       const carouselImages = [
         "https://media.istockphoto.com/id/1051616786/photo/digital-marketing-businessman-working-with-laptop-computer-tablet-and-smart-phone-modern.jpg?s=612x612&w=0&k=20&c=J2A6-q3RtqbISouQVBgpYtI1Ft9KeVsANUFHgG4Olbc=",
         "https://media.istockphoto.com/id/1071030302/photo/female-inventory-manager-shows-digital-tablet-information-to-a-worker-holding-cardboard-box.jpg?s=612x612&w=0&k=20&c=_PRg90QRTbxUPDljUJEAc9n5WnBG8TkMoEneC554Ag8=",
@@ -52,19 +126,6 @@
         "https://media.istockphoto.com/id/1177502660/photo/young-woman-reading-the-news-on-a-modern-tablet-computer-while-sitting-in-her-living-room.jpg?s=612x612&w=0&k=20&c=oEfXfMaKkgAVfshd7yk_bxGk2iQncWueLVlTL__gWWg=",
         "https://media.istockphoto.com/id/887987150/photo/blogging-woman-reading-blog.jpg?s=612x612&w=0&k=20&c=7SScR_Y4n7U3k5kBviYm3VwEmW4vmbngDUa0we429GA=",
       ];
-      //   const left = document.getElementById("left");
-      //   left.addEventListener("click", () => caroselleft(caroselimg));
-      //   const right = document.getElementById("right");
-      //   right.addEventListener("click", () => caroselleft(caroselimg));
-      //   let i = 5;
-      //   function caroselleft(arr) {
-      //     if (i == 0) {
-      //       i = 5;
-      //     }
-      //     i--;
-      //     document.getElementById("cimg").src = arr[i];
-      //   }
-
       const leftButton = document.getElementById("left");
       leftButton.addEventListener("click", () => moveCarousel(-1));
 
@@ -72,7 +133,6 @@
       rightButton.addEventListener("click", () => moveCarousel(1));
 
       let currentIndex = 0;
-
       function moveCarousel(direction) {
         currentIndex =
           (currentIndex + direction + carouselImages.length) %
@@ -84,6 +144,7 @@
         moveCarousel(1);
       }
       setInterval(autoSlide, 5000);
+      //---------------------- carousel-end
     </script>
   </body>
 </html>
