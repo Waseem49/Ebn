@@ -127,7 +127,6 @@ button {
 img {
   max-width: 100%;
   height: auto;
-  /* margin-bottom: 10px; */
 }
 
 h2 {
@@ -144,24 +143,22 @@ p {
   padding: 0 0.5rem;
 }
 
-button:hover {
-  background-color: #0056b3;
-}
 
 /* about-section */
 #about-section {
-  border: 1px solid red;
   position: relative;
-  width: 100vw;
+  width: 70vw;
   height: 70dvh;
 }
 #about1 {
-  border: 1px solid rgb(21, 49, 135);
-  max-width: 30%;
+  z-index: -1;
+  width: 30%;
+  min-width: 25rem;
   height: 70%;
   position: absolute;
   top: 5rem;
-  left: 10rem;
+  left: 0rem;
+  box-shadow: rgb(96, 144, 197) 5px 5px 20px 0px;
 }
 #about1 h1 {
   font-family: "League Spartan", sans-serif;
@@ -170,9 +167,40 @@ button:hover {
 #about1 p {
   font-family: "League Spartan", sans-serif;
   color: #666;
-  margin:1rem 1rem 0;
+  margin: 1rem 1rem 0;
   padding: 0;
 }
-#about1 #about1{
-  
+#about1 h3 {
+  position: absolute;
+  font-family: "League Spartan", sans-serif;
+  bottom: 2rem;
+  right: 1rem;
+  font-size: 18px;
+}
+#about2 {
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  box-shadow: rgb(96, 144, 197) 5px 5px 20px 0px;
+}
+#join { 
+  position: absolute;
+  top: 5rem;
+  right: 0;
+  width: 60%;
+  text-align: center;
+  font-size: 30px;
+  background-image: ;
+}
+#join h1{
+  font-family: "BioRhyme", serif;
+  font-weight: bold;
+  background-image: linear-gradient(
+    to right,
+    rgb(36, 34, 34),
+    rgb(28, 49, 165)
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
