@@ -152,7 +152,7 @@ p {
 #about-section {
   position: relative;
   width: 70vw;
-  height: 70dvh;
+  height: 32rem;
 }
 #about1 {
   z-index: -1;
