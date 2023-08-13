@@ -57,7 +57,8 @@
           <div>
             <img
               src="https://media.istockphoto.com/id/1051616786/photo/digital-marketing-businessman-working-with-laptop-computer-tablet-and-smart-phone-modern.jpg?s=612x612&w=0&k=20&c=J2A6-q3RtqbISouQVBgpYtI1Ft9KeVsANUFHgG4Olbc="
-              alt="ecomm" />
+              alt="ecomm"
+              loading="lazy" />
 
             <h2>E-Commerce</h2>
             <p>
@@ -134,8 +135,16 @@
         </div>
       </div>
     </section>
-    <section>
-      <div style="height: 200rem"></div>
+    <section style="margin-top: 7rem;">
+      <main style="margin-top: 7rem; width: 90vw;margin: 0 auto;" >
+        <h1 id="trend">Trending Products</h1>
+        <div id="line"></div>
+        <div id="listproducts">
+          <div id="hove">
+            <button>addd</button>
+          </div>
+        </div>
+      </main>
     </section>
     <script>
       //---------------------- carousel-start
@@ -190,7 +199,6 @@
 
         var that = this;
         var delta = 200 - Math.random() * 100;
-        // console.log(delta);
 
         if (this.isDeleting) {
           delta /= 2;
@@ -219,12 +227,35 @@
             new TxtType(elements[i], JSON.parse(toRotate), period);
           }
         }
-
-        // var css = document.createElement("style");
-        // css.type = "text/css";
-        // css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
-        // document.body.appendChild(css);
       };
+
+      const api = "https://mock-api-6jin.onrender.com/products";
+      const listdiv = document.createElement("listproducts");
+      async function fetchproducts() {
+        const data = await fetch(api);
+        const json = await data.json();
+        console.log(json);
+        displayproducts(json);
+        return json;
+      }
+      fetchproducts();
+      function displayproducts(data) {
+        data.forEach((el) => {
+          const product = document.createElement("div");
+          product.classList.add("product");
+          const htmlproduct = ` <img
+              src=${el.thumbnail}
+              alt="ecomm" loading="lazy" />
+            <h3>${el.title}</h3>
+            <p>
+              ${el.description.substring(0, 50)}
+            </p>
+            <h4> ${"Price: " + "$" + el.price}</h4>
+            `;
+          product.insertAdjacentHTML("afterbegin", htmlproduct);
+          document.getElementById("listproducts").appendChild(product);
+        });
+      }
     </script>
   </body>
 </html>
