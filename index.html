@@ -232,7 +232,6 @@
 
       // Cart to store added products
       const cart = [];
-      console.log(cart);
 
       async function fetchproducts() {
         const data = await fetch(api);
@@ -270,19 +269,21 @@
         addToCartButtons.forEach((button) => {
           button.addEventListener("click", () => {
             const productId = button.getAttribute("data-product-id");
-            // console.log(productId);
+            console.log(productId);
             console.log(data);
-            const productToAdd = data.find((product) => {
-              return product.id === productId;
-            });
+            const productToAdd = data.find(
+              (product) => product.id == productId
+            );
             console.log(productToAdd);
             if (productToAdd) {
               cart.push(productToAdd);
               console.log("Product added to cart:", productToAdd);
             }
+            console.log(cart);
           });
         });
       }
+      
     </script>
   </body>
 </html>
