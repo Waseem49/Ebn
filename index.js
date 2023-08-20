@@ -95,7 +95,7 @@ async function fetchproducts() {
     return null;
   }
 }
-fetchproducts();
+// fetchproducts();
 
 //----------------- skeloton------------------------
 function displaySkeletons(val) {
@@ -113,7 +113,7 @@ function displaySkeletons(val) {
   } else {
     // Remove all .skeleton elements
     const skeletonElements = document.querySelectorAll(".skeleton");
-    console.log(skeletonElements);
+    // console.log(skeletonElements);
     skeletonElements.forEach((skeleton) => {
       listProducts.removeChild(skeleton);
     });
@@ -150,7 +150,7 @@ function displayproducts(data) {
       console.log(data);
       const productToAdd = data.find((product) => product.id == productId);
       console.log(productToAdd);
-// ------------------------post to wishlist.----------
+      // ------------------------post to wishlist.----------
       if (productToAdd) {
         fetch("https://mock-api-6jin.onrender.com/ebnwishlist", {
           method: "POST",
@@ -172,3 +172,45 @@ async function skelprod() {
   }
 }
 skelprod();
+
+// ====================newssection =================
+const newsapi = "https://mock-api-6jin.onrender.com/ebnnews";
+
+function fetchNewsData() {
+  return fetch(newsapi)
+    .then((response) => {
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error fetching news data:", error);
+      throw error; // Re-throw the error to propagate it
+    });
+}
+
+function displayNews() {
+  fetchNewsData()
+    .then((data) => {
+      if (data) {
+        data.forEach((el) => {
+          const htmlString = `
+              <div>
+                <img src="https://c.ndtvimg.com/2023-08/a8huvi4o_rahul-gandhi_625x300_19_August_23.jpg" alt="" />
+                <h1>“${el.title.substring(0, 84)}”</h1>
+                <span>Date: ${el.date}</span>
+                <p>${el.description.substring(0, 160)}...</p>
+              </div>
+            `;
+          document
+            .getElementById("newslist")
+            .insertAdjacentHTML("afterbegin", htmlString);
+        });
+      } else {
+        console.log("No news data available.");
+      }
+    })
+    .catch((error) => {
+      console.error("Error displaying news data:", error);
+    });
+}
+
+displayNews();

@@ -6,6 +6,7 @@ body {
   width: 100vw;
   overflow-x: hidden;
   overflow-y: scroll;
+  /* background-color: black; */
 }
 body::-webkit-scrollbar {
   display: none;
@@ -14,8 +15,6 @@ body::-webkit-scrollbar {
 font-family: 'Cormorant', serif;
 font-family: 'League Spartan', sans-serif; */
 header {
-  /* font-family: 'BioRhyme', serif; */
-  /* font-family: 'Cormorant', serif; */
   font-family: "League Spartan", sans-serif;
   width: 100vw;
   height: 3rem;
@@ -371,7 +370,7 @@ p {
   position: relative;
   margin: 2.5rem 0;
   width: 100vw;
-  height: 35rem;
+  height: 38rem;
   background-image: url("https://plus.unsplash.com/premium_photo-1661483130622-7b98709ea9be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80");
   background-size: contain;
   background-position: center;
@@ -381,31 +380,50 @@ p {
   justify-content: center;
   align-items: center;
 }
-
 #newslist {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
+  width: 85%;
   height: 80%;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 100%));
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
-@media all and (min-width: 600px) and (max-width: 1100px) {
-  #newslist {
-    grid-template-columns: repeat(2, minmax(200px, 100%));
-    overflow-y: scroll;
+#newslist::-webkit-scrollbar {
+  display: none;
+}
+#newslist > div {
+  width: calc(30.33% - 0.5rem); /* Adjust the width as needed */
+  min-width: 200px;
+}
+@media all and (min-width: 1100px) and (max-width: 1500px) {
+  #newslist > div {
+    width: calc(29.33% - 0.5rem); /* Adjust the width as needed */
   }
 }
-@media all and (min-width: 300px) and (max-width: 600px) {
-  #newslist {
-    grid-template-columns: repeat(1, minmax(200px, 100%));
-    overflow-y: scroll;
+
+@media all and (min-width: 1000px) and (max-width: 1100px) {
+  #newslist > div {
+    width: calc(46% - 0.5rem); /* Adjust the width as needed */
   }
 }
+@media all and (min-width: 634px) and (max-width: 1000px) {
+  #newslist > div {
+    width: calc(43% - 0.5rem); /* Adjust the width as needed */
+  }
+}
+
+@media all and (max-width: 633px) {
+  #newslist > div {
+    width: calc(100% - 1rem); /* Adjust the width as needed */
+  }
+}
+
 #newslist > div {
   padding: 0 1rem;
   background-color: rgba(255, 255, 255, 0.279);
