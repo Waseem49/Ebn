@@ -365,3 +365,92 @@ p {
     transform: translateX(100%);
   }
 }
+
+/* newssection */
+#newssec {
+  position: relative;
+  margin: 2.5rem 0;
+  width: 100vw;
+  height: 35rem;
+  background-image: url("https://plus.unsplash.com/premium_photo-1661483130622-7b98709ea9be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#newslist {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 100%));
+  justify-content: center;
+  gap: 1rem;
+}
+@media all and (min-width: 600px) and (max-width: 1100px) {
+  #newslist {
+    grid-template-columns: repeat(2, minmax(200px, 100%));
+    overflow-y: scroll;
+  }
+}
+@media all and (min-width: 300px) and (max-width: 600px) {
+  #newslist {
+    grid-template-columns: repeat(1, minmax(200px, 100%));
+    overflow-y: scroll;
+  }
+}
+#newslist > div {
+  padding: 0 1rem;
+  background-color: rgba(255, 255, 255, 0.279);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+#newslist > div > img {
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+#newslist > div > h1 {
+  padding: 1rem 0;
+  font-weight: 450;
+  font-family: "League Spartan", sans-serif;
+  display: inline;
+}
+#newslist > div > p {
+  padding: 0;
+  font-family: "BioRhyme", serif;
+}
+
+#break {
+  margin-top: 5rem;
+  text-align: center;
+  font-family: "BioRhyme", serif;
+  font-size: 35px;
+  font-weight: bold;
+  background-image: linear-gradient(
+    to right,
+    rgb(5, 21, 71),
+    rgb(158, 27, 136)
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  margin: 0 auto;
+  width: 90vw;
+}
+#bline {
+  margin: auto;
+  max-width: 23rem;
+  height: 3px;
+  background-image: linear-gradient(
+    to right,
+    rgb(5, 21, 71),
+    rgb(158, 27, 136)
+  );
+}
