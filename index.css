@@ -475,48 +475,112 @@ p {
 
 /* =============footer================ */
 footer {
+  margin: 2rem auto;
   display: flex;
+  width: 95vw;
+  height: 21rem;
+  /* border: 1px solid; */
+  box-shadow: rgba(20, 70, 248, 0.329) 0px 2px 8px 0px;
 }
 #contactform {
   position: relative;
-  width: 380px;
-  height: 420px;
-  background: #1c1c1c;
-  border-radius: 8px;
+  width: 40%;
+  max-width: 400px;
+  min-width: 300px;
 }
 #contactform form {
   position: absolute;
   inset: 5px;
-  background: #222;
-  padding: 50px 50px;
+  background: #00000000;
+  padding: 20px 20px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
 }
 #contactform form h3 {
-  color: #fff;
+  font-size: 30px;
+  margin-bottom: 1rem;
+  color: #000000;
+  font-family: "League Spartan", sans-serif;
   text-align: center;
   font-weight: 300;
-  /* letter-spacing: 0.1em; */
+  max-width: 380px;
 }
 #contactform form .inputbox {
   position: relative;
-  width: 300px;
-  margin-top: 1rem;
+  width: 100%;
+  margin-top: 0.6rem;
+  max-width: 380px;
 }
 #contactform form .inputbox input,
 textarea {
+  font-family: "Cormorant", serif;
   position: relative;
-  /* width: 100%; */
-  padding: 5px 0;
+  font-weight: 700;
+  width: 100%;
+  padding: 3px 0;
   border: none;
-  border-bottom: 2px solid rgb(97, 96, 96);
-
+  border-bottom: 2px solid rgba(10, 95, 169, 0.656);
   background: transparent;
   outline: none;
-  color: #fff;
+  background-image: linear-gradient(
+    to right,
+    rgb(72, 115, 245),
+    rgb(255, 0, 212)
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
   font-size: 1em;
   letter-spacing: 0.05em;
-  transition: 0.5s;
-  z-index: 10;
+}
+#contactform form .inputbox button {
+  display: block;
+  margin: auto;
+}
+/* ============social media */
+#socailicon {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+#icons {
+  height: 300px;
+  width: 45px;
+  min-width: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#icons li {
+  list-style: none;
+}
+#socailicon img {
+  width: 80px !important;
+}
+iframe {
+  width: 100%;
+}
+@media all and (min-width: 300px) and (max-width: 710px) {
+  footer {
+    display: flex;
+    justify-content: space-around;
+  }
+  iframe {
+    display: none;
+  }
+}
+
+#copyright {
+  width: 100vw;
+  background-image: linear-gradient(
+    to right,
+    rgb(36, 34, 34),
+    rgb(28, 49, 165)
+  );
+}
+#copyright p {
+  color: azure;
+  margin: auto;
+  text-align: center;
+  padding: 0.7rem 0;
 }
