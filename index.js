@@ -214,3 +214,9 @@ function displayNews() {
 }
 
 displayNews();
+
+//         ==========arrowup
+const arrowup = document.querySelector("#arrow_up");
+arrowup.addEventListener("click", () => {
+  window.scrollTo(0, 0);
+});

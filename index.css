@@ -26,6 +26,10 @@ header {
   color: azure;
   display: flex;
   justify-content: center;
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  left: 0;
 }
 nav {
   width: 90%;
@@ -61,15 +65,18 @@ nav a {
   display: flex;
   justify-content: center;
 }
+
 @media all and (min-width: 300px) and (max-width: 710px) {
   #hero {
     height: 55dvh;
   }
 }
+
 #hero img {
   min-width: 100%;
-  min-height: 8;
+  transition: opacity 0.3s; /* Add a 0.3s opacity transition */
 }
+
 #left {
   color: azure;
   font-size: 2.2rem;
@@ -572,6 +579,7 @@ iframe {
 }
 
 #copyright {
+  position: relative;
   width: 100vw;
   background-image: linear-gradient(
     to right,
@@ -584,4 +592,25 @@ iframe {
   margin: auto;
   text-align: center;
   padding: 0.7rem 0;
+}
+#arrow_up {
+  z-index: 10;
+  width: 30px;
+  position: absolute;
+  right: 0.3rem;
+  top: -2.2rem;
+}
+#arrow_up:hover {
+  cursor: pointer;
+  background-color: #000000;
+  border-radius: 50%;
+}
+@media all and (min-width: 300px) and (max-width: 710px) {
+  #arrow_up {
+    z-index: 10;
+    width: 25px;
+    position: absolute;
+    right: 0.3rem;
+    top: -1.8rem;
+  }
 }
