@@ -48,22 +48,23 @@ nav ul li,
 nav a {
   list-style: none;
   text-decoration: none;
-  /* font-family: "League Spartan", sans-serif; */
   color: azure;
 }
 #user {
   font-size: 1rem;
 }
-
-/* carousel-start  */
 #hero {
   position: relative;
   width: 100vw;
   height: 80dvh;
   max-height: 80dvh;
-  /* height: 30rem; */
   display: flex;
   justify-content: center;
+}
+@media all and (min-width: 300px) and (max-width: 710px) {
+  #hero {
+    height: 55dvh;
+  }
 }
 #hero img {
   min-width: 100%;
