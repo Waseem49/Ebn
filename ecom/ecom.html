@@ -17,11 +17,23 @@
     </section>
     <!-- Main_Section -->
     <section id="main_sec">
-      <aside id="side_bar"></aside>
+      <aside id="side_bar">
+        <div>
+          <label for="lth" id="lth">Low to High</label>
+          <input type="radio" name="lth" id="lth" />
+          <label for="htl" id="htl">High to Low</label>
+          <input type="radio" name="htl" id="htl" />
+        </div>
+      </aside>
       <main id="product_list_main">
         <h1>Ecommerce Products</h1>
         <div id="line"></div>
         <div id="product_list"></div>
+        <div class="btnpagi">
+          <button id="prevbtn">Prev</button>
+          <button id="page"></button>
+          <button id="nextbtn">Next</button>
+        </div>
       </main>
     </section>
   </body>

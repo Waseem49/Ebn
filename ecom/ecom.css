@@ -11,6 +11,22 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
+button {
+  display: block;
+  margin: auto;
+  width: fit-content;
+  font-family: "League Spartan", sans-serif;
+  font-size: 1rem;
+  color: azure;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  background-image: linear-gradient(
+    to right,
+    rgb(36, 34, 34),
+    rgb(28, 49, 165)
+  );
+}
 /* ==========nav_sec-------- */
 #nav_sec {
   font-family: "League Spartan", sans-serif;
@@ -54,7 +70,7 @@ a {
   position: relative;
 }
 #product_list_main > :nth-child(1) {
-  padding: 1.6rem;
+  padding: 1.2rem;
   font-style: italic;
   font-weight: 900;
   font-family: "League Spartan", sans-serif;
@@ -165,8 +181,7 @@ a {
     rgb(28, 49, 165)
   );
 }
-
-.product button:hover {
+button:hover {
   background-image: linear-gradient(
     to right,
     rgb(67, 63, 63),
@@ -201,6 +216,13 @@ a {
   color: rgb(255, 255, 255);
   font-weight: 500;
   font-family: "Cormorant", serif;
+}
+.btnpagi {
+  padding: 2rem 0 1rem 0;
+  width: 20%;
+  margin: auto;
+  display: flex;
+  gap: 8px;
 }
 /* ===========sidebar--------- */
 #side_bar {
