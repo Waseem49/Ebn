@@ -89,14 +89,12 @@ async function fetchproducts() {
   try {
     const response = await fetch(api);
     const json = await response.json();
-    return json.slice(json.length - 13, json.length - 1).reverse();
+    return json;
   } catch (error) {
     console.error("Error fetching products:", error);
     return null;
   }
 }
-// fetchproducts();
-
 //----------------- skeloton------------------------
 function displaySkeletons(val) {
   const listProducts = document.getElementById("listproducts");
@@ -133,32 +131,43 @@ function displayproducts(data) {
 </p>
 <h4> ${"Price: " + "$" + el.price}</h4>
 <div id="hove">
-  <button class="wishlist" data-product-id="${el.id}">Add to Wishlist</button>
+  <button class="wishlist ${el.id}">Add to Wishlist</button>
 </div>
 `;
     product.innerHTML = htmlproduct;
     // product.insertAdjacentHTML("afterbegin", htmlproduct);
     document.getElementById("listproducts").appendChild(product);
   });
-
-  // Add event listeners to the "Add to Cart" buttons
-  const addToCartButtons = document.querySelectorAll(".wishlist");
-  addToCartButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const productId = button.getAttribute("data-product-id");
-      console.log(productId);
-      console.log(data);
+  const addToWishlistButtons = document.querySelectorAll(".wishlist");
+  addToWishlistButtons.forEach((button) => {
+    button.addEventListener("click", async () => {
+      const productId = button.getAttribute("class").trim().split(" ")[1];
+      // const productId = button.classList[1]; // Get the product ID from the class
       const productToAdd = data.find((product) => product.id == productId);
-      console.log(productToAdd);
-      // ------------------------post to wishlist.----------
+
       if (productToAdd) {
-        fetch("https://mock-api-6jin.onrender.com/ebnwishlist", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(productToAdd),
-        });
+        try {
+          const response = await fetch(
+            "https://mock-api-6jin.onrender.com/ebnwishlist",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(productToAdd),
+            }
+          );
+
+          if (response.ok) {
+            // If the request was successful, change the button text
+            button.textContent = "Added to Wishlist";
+            button.disabled = true; // Disable the button to prevent multiple clicks
+          } else {
+            console.error("Failed to add to wishlist");
+          }
+        } catch (error) {
+          console.error("Error adding to wishlist:", error);
+        }
       }
     });
   });
@@ -167,7 +176,7 @@ async function skelprod() {
   displaySkeletons();
   const data = await fetchproducts();
   if (data) {
-    displayproducts(data);
+    displayproducts(data.slice(data.length - 13, data.length - 1).reverse());
     displaySkeletons("delele");
   }
 }
@@ -220,3 +229,5 @@ const arrowup = document.querySelector("#arrow_up");
 arrowup.addEventListener("click", () => {
   window.scrollTo(0, 0);
 });
+
+// export { fetchproducts };

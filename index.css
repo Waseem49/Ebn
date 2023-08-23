@@ -60,23 +60,20 @@ nav a {
 #hero {
   position: relative;
   width: 100vw;
+  min-height: 23rem;
   height: 80dvh;
   max-height: 80dvh;
   display: flex;
   justify-content: center;
 }
-
 @media all and (min-width: 300px) and (max-width: 710px) {
   #hero {
     height: 55dvh;
   }
 }
-
 #hero img {
   min-width: 100%;
-  transition: opacity 0.3s; /* Add a 0.3s opacity transition */
 }
-
 #left {
   color: azure;
   font-size: 2.2rem;
