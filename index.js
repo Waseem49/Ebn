@@ -203,7 +203,7 @@ function displayNews() {
         data.forEach((el) => {
           const htmlString = `
               <div>
-                <img src="https://c.ndtvimg.com/2023-08/a8huvi4o_rahul-gandhi_625x300_19_August_23.jpg" alt="" />
+                <img src=${el.img} alt="" />
                 <h1>“${el.title.substring(0, 84)}”</h1>
                 <span>Date: ${el.date}</span>
                 <p>${el.description.substring(0, 160)}...</p>

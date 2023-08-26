@@ -19,14 +19,22 @@
     <section id="main_sec">
       <aside id="side_bar">
         <div>
-          <fieldset>
-            <legend>Sort by Price</legend>
-            <input type="radio" name="sortbyprice" id="lth" />
-            <label for="lth" id="lth">Low to High</label>
-            <br />
-            <input type="radio" name="sortbyprice" id="htl" />
-            <label for="htl" id="htl">High to Low</label>
-          </fieldset>
+          <p
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            ">
+            <span id="h2">Filters </span><span id="span">Clear</span>
+          </p>
+          <div class="sort">Sort By</div>
+          <input type="radio" name="sortbyprice" id="lth" />
+          <label for="lth" id="lth">Price - Low to High</label>
+          <br />
+          <br />
+          <input type="radio" name="sortbyprice" id="htl" />
+          <label for="htl" id="htl">Price - High to Low</label>
+          <div class="sort">Category</div>
         </div>
       </aside>
       <main id="product_list_main">

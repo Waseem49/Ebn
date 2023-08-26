@@ -9,6 +9,8 @@ const productsPerPage = 9;
 //---------Sorting--------------------------------
 const lowttohigh = document.querySelector("#lth");
 const hightolow = document.querySelector("#htl");
+//----------clear--------------------------------
+const clearbtn = document.querySelector("#span");
 
 const sortOptions = {
   ASC: "asc",
@@ -93,5 +95,11 @@ lowttohigh.addEventListener("click", () => {
 
 hightolow.addEventListener("click", () => {
   currentSort = sortOptions.DESC;
+  fetchproducts();
+});
+
+clearbtn.addEventListener("click", () => {
+  currentSort = sortOptions.NONE;
+  lowttohigh.Checked = false;
   fetchproducts();
 });

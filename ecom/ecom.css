@@ -226,8 +226,57 @@ button:hover {
 }
 /* ===========sidebar--------- */
 #side_bar {
-  border: 1px solid;
-  width: 25%;
+  /* border: 1px solid; */
+  width: 30%;
   max-width: 280px;
   height: 70dvh;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(8, 28, 177, 0.389);
+}
+#side_bar > div {
+  width: 200px;
+  margin: 0 auto;
+}
+#side_bar > div #h2 {
+  padding: 0.2rem 0;
+  font-style: italic;
+  margin-top: 1.5rem;
+  font-weight: 900;
+  font-family: "League Spartan", sans-serif;
+  font-size: 1.5rem;
+  background-image: linear-gradient(
+    to right,
+    rgb(5, 21, 71),
+    rgb(158, 27, 136)
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+#side_bar > div #span {
+  padding: 0.2rem 0;
+  font-style: italic;
+  margin-top: 1.5rem;
+  font-weight: 700;
+  font-family: "League Spartan", sans-serif;
+  font-size: 1rem;
+}
+
+#side_bar > div label {
+  font-family: "Cormorant", serif;
+  font-size: 20px;
+}
+.sort {
+  width: 100%;
+  padding: 0.5rem;
+  color: azure;
+  margin: 0.5rem 0;
+  font-family: "Cormorant", serif;
+  font-weight: 500;
+  font-size: 20px;
+  background-image: linear-gradient(
+    to right,
+    rgb(36, 34, 34),
+    rgb(28, 49, 165)
+  );
 }
