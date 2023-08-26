@@ -1,24 +1,52 @@
 // ===================data-fatching =================
 const api = "https://mock-api-6jin.onrender.com/products";
 const product_list = document.querySelector("#product_list");
+// ---------Paginations--------------------------------
 const prevbtn = document.querySelector("#prevbtn");
 const page = document.querySelector("#page");
 const nextbtn = document.querySelector("#nextbtn");
-let currentPage = 1;
 const productsPerPage = 9;
+//---------Sorting--------------------------------
+const lowttohigh = document.querySelector("#lth");
+const hightolow = document.querySelector("#htl");
+
+const sortOptions = {
+  ASC: "asc",
+  DESC: "desc",
+  NONE: "none",
+};
+
+let currentPage = 1;
+let currentSort = sortOptions.NONE;
 
 async function fetchproducts() {
   try {
     const response = await fetch(api);
     const json = await response.json();
-    displayProducts(json);
-    return json;
+    let data = [...json];
+
+    if (currentSort == sortOptions.ASC) {
+      data.sort((a, b) => a.price - b.price);
+    } else if (currentSort == sortOptions.DESC) {
+      data.sort((a, b) => b.price - a.price);
+    }
+
+    const totalPages = Math.ceil(data.length / productsPerPage);
+    updatePaginationButtons(totalPages);
+
+    displayProducts(
+      data.slice(
+        (currentPage - 1) * productsPerPage,
+        currentPage * productsPerPage
+      )
+    );
   } catch (error) {
     console.error("Error fetching products:", error);
     return null;
   }
 }
-// fetchproducts();
+
+fetchproducts();
 
 function displayProducts(data) {
   product_list.innerHTML = "";
@@ -38,7 +66,7 @@ function displayProducts(data) {
             <button>Buy Now </button> 
           </div>
         </div>`;
-      product_list.insertAdjacentHTML("afterbegin", product);
+      product_list.insertAdjacentHTML("beforeend", product);
     });
   }
 }
@@ -49,39 +77,21 @@ const updatePaginationButtons = (totalPages) => {
   page.textContent = currentPage;
 };
 
-const handlePagination = async () => {
-  const data = await fetchproducts();
-  const totalPages = Math.ceil(data.length / productsPerPage);
-  updatePaginationButtons(totalPages);
+prevbtn.addEventListener("click", () => {
+  currentPage--;
+  fetchproducts();
+});
+nextbtn.addEventListener("click", () => {
+  currentPage++;
+  fetchproducts();
+});
 
-  prevbtn.addEventListener("click", () => {
-    if (currentPage > 1) {
-      currentPage--;
-      displayProducts(
-        data.slice(
-          (currentPage - 1) * productsPerPage,
-          currentPage * productsPerPage
-        )
-      );
-      updatePaginationButtons(totalPages);
-    }
-  });
+lowttohigh.addEventListener("click", () => {
+  currentSort = sortOptions.ASC;
+  fetchproducts();
+});
 
-  nextbtn.addEventListener("click", () => {
-    if (currentPage < totalPages) {
-      currentPage++;
-      displayProducts(
-        data.slice(
-          (currentPage - 1) * productsPerPage,
-          currentPage * productsPerPage
-        )
-      );
-      updatePaginationButtons(totalPages);
-    }
-  });
-
-  // Initially, display the first page of products
-  displayProducts(data.slice(0, productsPerPage));
-};
-
-handlePagination();
+hightolow.addEventListener("click", () => {
+  currentSort = sortOptions.DESC;
+  fetchproducts();
+});
