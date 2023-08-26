@@ -100,6 +100,7 @@ hightolow.addEventListener("click", () => {
 
 clearbtn.addEventListener("click", () => {
   currentSort = sortOptions.NONE;
-  lowttohigh.Checked = false;
+  lowttohigh.checked = false;
+  hightolow.checked = false;
   fetchproducts();
 });
