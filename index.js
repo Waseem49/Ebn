@@ -211,7 +211,7 @@ function displayNews() {
             `;
           document
             .getElementById("newslist")
-            .insertAdjacentHTML("afterbegin", htmlString);
+            .insertAdjacentHTML("beforeend", htmlString);
         });
       } else {
         console.log("No news data available.");
