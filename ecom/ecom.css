@@ -229,7 +229,7 @@ button:hover {
   /* border: 1px solid; */
   width: 30%;
   max-width: 280px;
-  height: 70dvh;
+  height: fit-content;
   display: flex;
   justify-content: center;
   box-shadow: 0 2px 10px rgba(8, 28, 177, 0.389);
@@ -242,6 +242,7 @@ button:hover {
   padding: 0.2rem 0;
   font-style: italic;
   margin-top: 1.5rem;
+  text-decoration: underline;
   font-weight: 900;
   font-family: "League Spartan", sans-serif;
   font-size: 1.5rem;
@@ -257,6 +258,7 @@ button:hover {
   padding: 0.2rem 0;
   font-style: italic;
   margin-top: 1.5rem;
+  text-decoration: underline;
   font-weight: 700;
   font-family: "League Spartan", sans-serif;
   font-size: 1rem;
@@ -279,4 +281,18 @@ button:hover {
     rgb(36, 34, 34),
     rgb(28, 49, 165)
   );
+}
+
+.slider-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+label {
+  font-size: 18px;
+}
+
+#priceRange {
+  width: 80%;
+  max-width: 400px;
 }

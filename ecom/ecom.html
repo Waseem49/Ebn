@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>E-comm</title>
     <link rel="stylesheet" href="ecom.css" />
     <script src="ecom.js" type="module" defer></script>
   </head>
@@ -35,6 +35,55 @@
           <input type="radio" name="sortbyprice" id="htl" />
           <label for="htl" id="htl">Price - High to Low</label>
           <div class="sort">Category</div>
+          <input
+            type="checkbox"
+            name="smartphones"
+            id="smartphones"
+            value="smartphones" />
+          <label for="smartphones">Smartphones</label>
+          <br />
+          <br />
+          <input type="checkbox" name="laptops" id="laptops" value="laptops" />
+          <label for="laptops">Laptops</label>
+          <br />
+          <br />
+          <input
+            type="checkbox"
+            name="fragrances"
+            id="fragrances"
+            value="fragrances" />
+          <label for="fragrances">Fragrances</label>
+          <br />
+          <br />
+          <input
+            type="checkbox"
+            name="skincare"
+            id="skincare"
+            value="skincare" />
+          <label for="skincare">Skincare</label>
+          <br />
+          <br />
+          <input
+            type="checkbox"
+            name="groceries"
+            id="groceries"
+            value="groceries" />
+          <label for="groceries">Groceries</label>
+          <div class="sort">Price Range</div>
+          <div class="slider-container"></div>
+          <label for="priceRange"
+            >Price Range: $<span id="priceValue">0</span> - $<span
+              id="maxPriceValue"
+              >2000</span
+            ></label
+          >
+          <input
+            type="range"
+            id="priceRange"
+            min="0"
+            max="2000"
+            step="100"
+            value="2000" />
         </div>
       </aside>
       <main id="product_list_main">

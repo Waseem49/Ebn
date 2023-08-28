@@ -11,6 +11,20 @@ const lowttohigh = document.querySelector("#lth");
 const hightolow = document.querySelector("#htl");
 //----------clear--------------------------------
 const clearbtn = document.querySelector("#span");
+//-----------CATEGORY--------------------------------
+const smartphones = document.querySelector("#smartphones");
+const laptops = document.querySelector("#laptops");
+const fragrances = document.querySelector("#fragrances");
+const skincare = document.querySelector("#skincare");
+const groceries = document.querySelector("#groceries");
+//--------------pricerange--------------------------------
+const priceRange = document.getElementById("priceRange");
+const priceValue = document.getElementById("priceValue");
+const maxPriceValue = document.getElementById("maxPriceValue");
+
+let selectedPrice = 2000;
+
+let selectedCategories = [];
 
 const sortOptions = {
   ASC: "asc",
@@ -26,6 +40,14 @@ async function fetchproducts() {
     const response = await fetch(api);
     const json = await response.json();
     let data = [...json];
+
+    data = data.filter((product) => product.price <= selectedPrice);
+
+    if (selectedCategories.length > 0) {
+      data = data.filter((el) => {
+        return selectedCategories.includes(el.category.toLowerCase());
+      });
+    }
 
     if (currentSort == sortOptions.ASC) {
       data.sort((a, b) => a.price - b.price);
@@ -47,8 +69,17 @@ async function fetchproducts() {
     return null;
   }
 }
-
 fetchproducts();
+
+function updateSelectedCategories(category) {
+  const index = selectedCategories.indexOf(category);
+  if (index === -1) {
+    selectedCategories.push(category);
+  } else {
+    selectedCategories.splice(index, 1);
+  }
+  fetchproducts();
+}
 
 function displayProducts(data) {
   product_list.innerHTML = "";
@@ -102,5 +133,33 @@ clearbtn.addEventListener("click", () => {
   currentSort = sortOptions.NONE;
   lowttohigh.checked = false;
   hightolow.checked = false;
+  smartphones.checked = false;
+  laptops.checked = false;
+  fetchproducts();
+});
+
+smartphones.addEventListener("click", () => {
+  updateSelectedCategories(smartphones.getAttribute("name"));
+});
+
+laptops.addEventListener("click", () => {
+  updateSelectedCategories(laptops.getAttribute("name"));
+});
+
+fragrances.addEventListener("click", () => {
+  updateSelectedCategories(fragrances.getAttribute("name"));
+});
+
+skincare.addEventListener("click", () => {
+  updateSelectedCategories(skincare.getAttribute("name"));
+});
+
+groceries.addEventListener("click", () => {
+  updateSelectedCategories(groceries.getAttribute("name"));
+});
+
+priceRange.addEventListener("input", () => {
+  selectedPrice = priceRange.value;
+  maxPriceValue.textContent = `${selectedPrice}`;
   fetchproducts();
 });
