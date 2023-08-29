@@ -59,6 +59,7 @@ nav a {
   color: azure;
 }
 nav :nth-child(2) {
+  cursor: pointer;
   position: relative;
 }
 #cartquantity {
@@ -75,6 +76,36 @@ nav img {
 nav img:hover {
   transform: scale(1.2); /* Enlarge the icon on hover */
   transition: transform 0.2s ease-in-out; /* Add a smooth transition effect */
+}
+#cartt {
+  position: absolute;
+  background-color: #093d74;
+  right: 0;
+  top: 2.5rem;
+  width: 280px;
+  height: 80dvh;
+  display: none;
+}
+#cartt > div {
+  height: 4rem;
+  border: 1px solid wheat;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#cartt > div > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+#cartt > div > div h3,
+h4 {
+  padding: 0 0.5rem;
+  font-family: "Cormorant", serif;
+}
+#cartt > div > img {
+  width: 4rem;
+  height: 3.5rem;
 }
 #main_sec {
   display: flex;

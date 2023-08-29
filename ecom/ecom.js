@@ -24,6 +24,41 @@ const maxPriceValue = document.getElementById("maxPriceValue");
 //--------------addtocart--------------------------------
 let cartitem = JSON.parse(localStorage.getItem("cartitem")) || [];
 const cartquantity = document.querySelector("#cartquantity");
+const carticon = document.querySelector("#carttbtn");
+const cartt = document.querySelector("#cartt");
+
+let toggle = true;
+// if (!toggle) {
+//   cartt.textContent = "";
+// } else {
+//   cartt.textContent = "inside";
+// }
+
+carticon.addEventListener("click", () => {
+  cartt.innerHTML = "";
+  if (toggle) {
+    console.log(toggle);
+    cartt.style.display = "block";
+    cartitem.map((el) => {
+      console.log(el);
+      const cartdivinnerhtml = `
+        <div>
+           <div>
+              <h3>${el.title.substring(0, 20)}</h3>
+              <h4>Price :${el.price}</h4>
+           </div>
+           <img src=${el.thumbnail} alt="alt" />
+        </div>
+        `;
+      cartt.insertAdjacentHTML("beforeend", cartdivinnerhtml);
+    });
+    toggle = !toggle;
+  } else {
+    cartt.style.display = "none";
+    toggle = !toggle;
+  }
+});
+
 if (cartitem.length > 0) {
   cartquantity.textContent = cartitem.length;
 } else if (cartitem.length === 0) {
