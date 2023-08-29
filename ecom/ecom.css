@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
 }
+/* font-family: 'BioRhyme', serif;
+font-family: 'Cormorant', serif;
+font-family: 'League Spartan', sans-serif; */
 body {
   width: 100vw;
   /* overflow-x: hidden; */
@@ -79,34 +82,96 @@ nav img:hover {
 }
 #cartt {
   position: absolute;
-  background-color: #093d74;
+  background-color: rgba(255, 255, 255, 0.949);
   right: 0;
   top: 2.5rem;
   width: 280px;
-  height: 80dvh;
+  height: 24.5rem;
+  display: flex;
+  justify-content: space-between;
+  border: 3px solid rgb(39, 33, 33);
+}
+#cartt > :nth-child(1) {
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Cormorant", serif;
+  color: azure;
+  background-image: linear-gradient(
+    to right,
+    rgb(33, 53, 119),
+    rgb(28, 48, 157)
+  );
+}
+#cartt > :nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  height: 18.6rem;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+#cartt > :nth-child(2)::-webkit-scrollbar {
   display: none;
 }
-#cartt > div {
+#cartt > :nth-child(2) > div {
   height: 4rem;
-  border: 1px solid wheat;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 10px rgba(8, 28, 177, 0.389);
 }
-#cartt > div > div {
+#cartt > :nth-child(2) > div span {
+  z-index: 100;
+  height: 100%;
+  writing-mode: vertical-rl;
+  font-size: 13px;
+  letter-spacing: -5px;
+  padding: 0 2px;
+  text-orientation: upright;
+  border-radius: 5px;
+  background-image: linear-gradient(
+    to right,
+    rgb(36, 34, 34),
+    rgb(28, 49, 165)
+  );
+}
+#cartt > :nth-child(2) > div img {
+  width: 4rem;
+  height: 3.5rem;
+}
+#cartt > :nth-child(2) > div > div {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-#cartt > div > div h3,
+#cartt > :nth-child(2) > div > div h3,
 h4 {
+  color: black;
   padding: 0 0.5rem;
   font-family: "Cormorant", serif;
 }
-#cartt > div > img {
-  width: 4rem;
-  height: 3.5rem;
+#cartt > :nth-child(3) {
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Cormorant", serif;
+  color: azure;
+  background-image: linear-gradient(
+    to right,
+    rgb(33, 53, 119),
+    rgb(28, 48, 157)
+  );
 }
+/* #cartt > div {
+  height: 4rem;
+  border: 1px solid rgb(19, 241, 56);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
 #main_sec {
   display: flex;
 }

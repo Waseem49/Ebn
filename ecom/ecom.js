@@ -28,29 +28,34 @@ const carticon = document.querySelector("#carttbtn");
 const cartt = document.querySelector("#cartt");
 
 let toggle = true;
-// if (!toggle) {
-//   cartt.textContent = "";
-// } else {
-//   cartt.textContent = "inside";
-// }
+cartt.style.display = "none";
 
 carticon.addEventListener("click", () => {
-  cartt.innerHTML = "";
+  document.querySelector("#cartlist").innerHTML = "";
   if (toggle) {
-    console.log(toggle);
+    document.querySelector("#cartlist").innerHTML = "";
     cartt.style.display = "block";
     cartitem.map((el) => {
-      console.log(el);
       const cartdivinnerhtml = `
         <div>
            <div>
-              <h3>${el.title.substring(0, 20)}</h3>
+              <h3>${el.title.substring(0, 18)}</h3>
               <h4>Price :${el.price}</h4>
            </div>
+           <span id="removebtn${el.id}">Remove</span>
            <img src=${el.thumbnail} alt="alt" />
         </div>
         `;
-      cartt.insertAdjacentHTML("beforeend", cartdivinnerhtml);
+      document
+        .querySelector("#cartlist")
+        .insertAdjacentHTML("afterbegin", cartdivinnerhtml);
+      const removefromcart = document.querySelector(`#removebtn${el.id}`);
+      removefromcart.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const cartitemindex = cartitem.indexOf(el);
+        cartitem.splice(cartitemindex, 1);
+        localStorage.setItem("cartitem", JSON.stringify(cartitem));
+      });
     });
     toggle = !toggle;
   } else {
