@@ -21,6 +21,16 @@ const groceries = document.querySelector("#groceries");
 const priceRange = document.getElementById("priceRange");
 const priceValue = document.getElementById("priceValue");
 const maxPriceValue = document.getElementById("maxPriceValue");
+//--------------addtocart--------------------------------
+let cartitem = JSON.parse(localStorage.getItem("cartitem")) || [];
+const cartquantity = document.querySelector("#cartquantity");
+if (cartitem.length > 0) {
+  cartquantity.textContent = cartitem.length;
+} else if (cartitem.length === 0) {
+  cartquantity.textContent = "x";
+}
+
+const toast = document.getElementById("toast");
 
 let selectedPrice = 2000;
 
@@ -95,11 +105,26 @@ function displayProducts(data) {
              <span>Stoke:${el.stock}</span>
           </div>
           <div class="btn">
-            <button>Add to Cart</button>
+          <button id="add-to-cart-${el.id}"></button>
             <button>Buy Now </button> 
           </div>
         </div>`;
+
       product_list.insertAdjacentHTML("beforeend", product);
+      const addtocartbtn = document.querySelector(`#add-to-cart-${el.id}`);
+      addtocartbtn.textContent = "Add to Cart";
+
+      addtocartbtn.addEventListener("click", () => {
+        const productexist = cartitem.filter((pl) => pl.id === el.id);
+        if (productexist.length === 0) {
+          cartitem.push(el);
+          cartquantity.textContent = cartitem.length;
+          localStorage.setItem("cartitem", JSON.stringify(cartitem));
+          showToast();
+        } else {
+          showToast("added");
+        }
+      });
     });
   }
 }
@@ -135,6 +160,11 @@ clearbtn.addEventListener("click", () => {
   hightolow.checked = false;
   smartphones.checked = false;
   laptops.checked = false;
+  fragrances.checked = false;
+  skincare.checked = false;
+  groceries.checked = false;
+  selectedPrice = 2000;
+  selectedCategories = [];
   fetchproducts();
 });
 
@@ -163,3 +193,19 @@ priceRange.addEventListener("input", () => {
   maxPriceValue.textContent = `${selectedPrice}`;
   fetchproducts();
 });
+
+function showToast(added) {
+  if (added !== "added") {
+    toast.textContent = "Product Added Successfully";
+    toast.style.display = "block";
+    setTimeout(() => {
+      toast.style.display = "none";
+    }, 2000);
+  } else {
+    toast.style.display = "block";
+    toast.textContent = "Already in Cart";
+    setTimeout(() => {
+      toast.style.display = "none";
+    }, 2000);
+  }
+}

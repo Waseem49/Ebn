@@ -45,15 +45,36 @@ button {
   top: 0;
   left: 0;
 }
-nav,
-a {
+nav {
+  /* border: 1px solid white; */
   margin: auto;
   width: 85vw;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   list-style: none;
+}
+nav a {
   text-decoration: none;
   color: azure;
+}
+nav :nth-child(2) {
+  position: relative;
+}
+#cartquantity {
+  position: absolute;
+  left: 40%;
+  top: 35%;
+}
+nav img {
+  width: 45px;
+  height: 35px;
+  border: none;
+  vertical-align: middle;
+}
+nav img:hover {
+  transform: scale(1.2); /* Enlarge the icon on hover */
+  transition: transform 0.2s ease-in-out; /* Add a smooth transition effect */
 }
 #main_sec {
   display: flex;
@@ -226,7 +247,7 @@ button:hover {
 }
 /* ===========sidebar--------- */
 #side_bar {
-  /* border: 1px solid; */
+  padding-bottom: 1.5rem;
   width: 30%;
   max-width: 280px;
   height: fit-content;
@@ -295,4 +316,21 @@ label {
 #priceRange {
   width: 80%;
   max-width: 400px;
+}
+
+.toast {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  background-image: linear-gradient(
+    to right,
+    rgb(36, 34, 34),
+    rgb(28, 49, 165)
+  );
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 16px;
 }
