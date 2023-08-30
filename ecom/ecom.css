@@ -184,6 +184,7 @@ h4 {
   top: 2.5rem;
   width: 280px;
   height: 20rem;
+  display: none;
 }
 #emptycart img {
   display: block;

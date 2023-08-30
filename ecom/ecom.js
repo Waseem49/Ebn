@@ -42,9 +42,13 @@ function cartPrice() {
 let toggle = true;
 cartt.style.display = "none";
 shadow.style.display = "none";
-emptycart.style.display = "none";
+updateEmptyCartDisplay();
 
 carticon.addEventListener("click", () => {
+  if (cartitem.length === 0) {
+    emptycart.style.display = "block";
+    updateEmptyCartDisplay();
+  }
   if (toggle) {
     cartt.style.display = "block";
     shadow.style.display = "block";
@@ -84,6 +88,7 @@ function updateCartDisplay() {
       localStorage.setItem("cartitem", JSON.stringify(cartitem));
       updateCartDisplay();
       updateCartQuantity();
+      updateEmptyCartDisplay();
     });
     cartPrice();
   });
@@ -96,9 +101,18 @@ function updateCartQuantity() {
   } else {
     cartquantity.textContent = "x";
     emptycart.style.display = "block";
-    cartPrice();
+  }
+  cartPrice();
+}
+
+function updateEmptyCartDisplay() {
+  if (cartitem.length === 0) {
+    emptycart.style.display = "block";
+  } else {
+    emptycart.style.display = "none";
   }
 }
+
 updateCartQuantity();
 
 const toast = document.getElementById("toast");
