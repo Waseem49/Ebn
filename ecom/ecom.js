@@ -22,53 +22,84 @@ const priceRange = document.getElementById("priceRange");
 const priceValue = document.getElementById("priceValue");
 const maxPriceValue = document.getElementById("maxPriceValue");
 //--------------addtocart--------------------------------
-let cartitem = JSON.parse(localStorage.getItem("cartitem")) || [];
+var cartitem = JSON.parse(localStorage.getItem("cartitem")) || [];
 const cartquantity = document.querySelector("#cartquantity");
 const carticon = document.querySelector("#carttbtn");
 const cartt = document.querySelector("#cartt");
+const emptycart = document.querySelector("#emptycart");
+const shadow = document.querySelector("#shadow");
+const pricespan = document.getElementById("price");
+let price = 0;
+
+function cartPrice() {
+  price = cartitem.reduce((acc, el) => {
+    return acc + el.price;
+  }, 0);
+  pricespan.textContent = price;
+  return price;
+}
 
 let toggle = true;
 cartt.style.display = "none";
+shadow.style.display = "none";
+emptycart.style.display = "none";
 
 carticon.addEventListener("click", () => {
-  document.querySelector("#cartlist").innerHTML = "";
   if (toggle) {
-    document.querySelector("#cartlist").innerHTML = "";
     cartt.style.display = "block";
-    cartitem.map((el) => {
-      const cartdivinnerhtml = `
-        <div>
-           <div>
-              <h3>${el.title.substring(0, 18)}</h3>
-              <h4>Price :${el.price}</h4>
-           </div>
-           <span id="removebtn${el.id}">Remove</span>
-           <img src=${el.thumbnail} alt="alt" />
-        </div>
-        `;
-      document
-        .querySelector("#cartlist")
-        .insertAdjacentHTML("afterbegin", cartdivinnerhtml);
-      const removefromcart = document.querySelector(`#removebtn${el.id}`);
-      removefromcart.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const cartitemindex = cartitem.indexOf(el);
-        cartitem.splice(cartitemindex, 1);
-        localStorage.setItem("cartitem", JSON.stringify(cartitem));
-      });
-    });
-    toggle = !toggle;
+    shadow.style.display = "block";
+    updateCartDisplay();
   } else {
     cartt.style.display = "none";
-    toggle = !toggle;
+    shadow.style.display = "none";
   }
+  toggle = !toggle;
 });
 
-if (cartitem.length > 0) {
-  cartquantity.textContent = cartitem.length;
-} else if (cartitem.length === 0) {
-  cartquantity.textContent = "x";
+function updateCartDisplay() {
+  const cartlist = document.querySelector("#cartlist");
+  cartlist.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+  cartlist.innerHTML = "";
+
+  cartitem.forEach((el) => {
+    const cartdivinnerhtml = `
+      <div>
+        <div>
+          <h3>${el.title.substring(0, 18)}</h3>
+          <h4>Price: $${el.price}</h4>
+        </div>
+        <span id="removebtn${el.id}">Remove</span>
+        <img src=${el.thumbnail} alt="alt" />
+      </div>
+    `;
+    cartlist.insertAdjacentHTML("afterbegin", cartdivinnerhtml);
+
+    const removefromcart = document.querySelector(`#removebtn${el.id}`);
+    removefromcart.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const cartitemindex = cartitem.indexOf(el);
+      cartitem.splice(cartitemindex, 1);
+      localStorage.setItem("cartitem", JSON.stringify(cartitem));
+      updateCartDisplay();
+      updateCartQuantity();
+    });
+    cartPrice();
+  });
 }
+
+function updateCartQuantity() {
+  if (cartitem.length > 0) {
+    cartquantity.textContent = cartitem.length;
+    emptycart.style.display = "none";
+  } else {
+    cartquantity.textContent = "x";
+    emptycart.style.display = "block";
+    cartPrice();
+  }
+}
+updateCartQuantity();
 
 const toast = document.getElementById("toast");
 
