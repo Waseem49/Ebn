@@ -29,8 +29,8 @@ const cartt = document.querySelector("#cartt");
 const emptycart = document.querySelector("#emptycart");
 const shadow = document.querySelector("#shadow");
 const pricespan = document.getElementById("price");
-let price = 0;
 
+let price = 0;
 function cartPrice() {
   price = cartitem.reduce((acc, el) => {
     return acc + el.price;
@@ -38,25 +38,23 @@ function cartPrice() {
   pricespan.textContent = price;
   return price;
 }
-
 let toggle = true;
-cartt.style.display = "none";
-shadow.style.display = "none";
-updateEmptyCartDisplay();
+function hideCart() {
+  cartt.style.display = "none";
+  shadow.style.display = "none";
+  emptycart.style.display = "none";
+}
+hideCart();
 
 carticon.addEventListener("click", () => {
-  if (cartitem.length === 0) {
-    emptycart.style.display = "block";
-    updateEmptyCartDisplay();
-  }
   if (toggle) {
     cartt.style.display = "block";
     shadow.style.display = "block";
     updateCartDisplay();
   } else {
-    cartt.style.display = "none";
-    shadow.style.display = "none";
+    hideCart();
   }
+  updateEmptyCartDisplay();
   toggle = !toggle;
 });
 
@@ -88,7 +86,6 @@ function updateCartDisplay() {
       localStorage.setItem("cartitem", JSON.stringify(cartitem));
       updateCartDisplay();
       updateCartQuantity();
-      updateEmptyCartDisplay();
     });
     cartPrice();
   });
@@ -106,19 +103,18 @@ function updateCartQuantity() {
 }
 
 function updateEmptyCartDisplay() {
-  if (cartitem.length === 0) {
-    emptycart.style.display = "block";
-  } else {
+  console.log(cartitem.length);
+  if (cartitem.length > 0) {
     emptycart.style.display = "none";
+  } else {
+    emptycart.style.display = "block";
   }
 }
-
+updateEmptyCartDisplay();
 updateCartQuantity();
 
 const toast = document.getElementById("toast");
-
 let selectedPrice = 2000;
-
 let selectedCategories = [];
 
 const sortOptions = {

@@ -82,7 +82,6 @@ nav img:hover {
 }
 #cartt {
   position: absolute;
-  /* background-color: rgba(255, 255, 255, 0.949); */
   right: -200%;
   top: 2.5rem;
   width: 280px;
@@ -178,15 +177,14 @@ h4 {
   font-size: 20px;
   padding: 1rem 2rem;
 }
-#emptycart {
+#cartt > :nth-child(5) {
   position: absolute;
-  right: -200%;
-  top: 2.5rem;
+  right: 0;
+  top: 0;
   width: 280px;
   height: 20rem;
-  display: none;
 }
-#emptycart img {
+#cartt > :nth-child(5) img {
   display: block;
   padding: 3rem;
   width: 130px;
@@ -457,4 +455,13 @@ label {
   border-radius: 5px;
   padding: 0.5rem 1rem;
   font-size: 16px;
+}
+
+#priceRange::-webkit-slider-runnable-track {
+  background-image: linear-gradient(
+    to right,
+    rgb(36, 34, 34),
+    rgb(28, 49, 165)
+  );
+  border-radius: 5px;
 }
