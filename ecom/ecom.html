@@ -6,6 +6,7 @@
     <title>E-comm</title>
     <link rel="stylesheet" href="ecom.css" />
     <script src="ecom.js" type="module" defer></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   </head>
   <body>
     <!-- Navbar_Section -->
@@ -21,8 +22,8 @@
             <div>
               <h1>Total Price : <span id="price"></span></h1>
             </div>
-            <div>
-              <button>Checkout</button>
+            <div id="chechdiv">
+              <button id="checkoutbtn">Checkout</button>
             </div>
             <div id="emptycart">
               <img

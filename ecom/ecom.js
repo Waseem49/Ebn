@@ -29,6 +29,7 @@ const cartt = document.querySelector("#cartt");
 const emptycart = document.querySelector("#emptycart");
 const shadow = document.querySelector("#shadow");
 const pricespan = document.getElementById("price");
+const checkoutbtn = document.querySelector("#checkoutbtn");
 
 let price = 0;
 function cartPrice() {
@@ -103,7 +104,6 @@ function updateCartQuantity() {
 }
 
 function updateEmptyCartDisplay() {
-  console.log(cartitem.length);
   if (cartitem.length > 0) {
     emptycart.style.display = "none";
   } else {
