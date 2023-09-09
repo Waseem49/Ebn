@@ -142,7 +142,6 @@ function displayproducts(data) {
   addToWishlistButtons.forEach((button) => {
     button.addEventListener("click", async () => {
       const productId = button.getAttribute("class").trim().split(" ")[1];
-      // const productId = button.classList[1]; // Get the product ID from the class
       const productToAdd = data.find((product) => product.id == productId);
 
       if (productToAdd) {
@@ -192,7 +191,7 @@ function fetchNewsData() {
     })
     .catch((error) => {
       console.error("Error fetching news data:", error);
-      throw error; // Re-throw the error to propagate it
+      throw error; 
     });
 }
 
@@ -224,10 +223,10 @@ function displayNews() {
 
 displayNews();
 
-//         ==========arrowup
+
 const arrowup = document.querySelector("#arrow_up");
 arrowup.addEventListener("click", () => {
   window.scrollTo(0, 0);
 });
 
-// export { fetchproducts };
+
