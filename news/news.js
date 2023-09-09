@@ -8,6 +8,7 @@ const page = document.querySelector("#page");
 const prevbtn = document.querySelector("#prevbtn");
 const nextbtn = document.querySelector("#nextbtn");
 const spinner = document.querySelector(".spinner-box");
+let scrollhua = 0;
 let pagecount = 1;
 
 function pageChange() {
@@ -24,6 +25,13 @@ prevbtn.addEventListener("click", () => {
   pagecount--;
   getnews();
 });
+
+window.addEventListener("scroll", scrollval);
+
+function scrollval() {
+  scrollhua = window.scrollY;
+  console.log(window.scrollY);
+}
 
 let newsbody =
   "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque ut veniam laboriosam facilis ducimus voluptatibus minus ex? Eius illum, veniam quia vitae nulla, sapiente non sed adipisci possimus iure recusandae cumque rem, excepturi nisi debitis est neque molestiae provident! A assumenda consequatur autem cum pariatur. Veritatis corporis voluptas blanditiis dolore eveniet ut, natus omnis commodi ipsam eius assumenda itaque labore dolorem totam laborum reiciendis explicabo magni optio quisquam. Esse alias, ipsum odit quibusdam veritatis minima quia autem ex sed libero tenetur dolor totam, magni officiis perspiciatis rerum accusamus. Inventore quasi error quia est obcaecati unde expedita? Laboriosam deleniti at nihil deserunt iure, maxime fuga, quis distinctio repellendus consequuntur suscipit temporibus minima dolor nobis ducimus eaque, possimus eius ullam porro.";
@@ -113,6 +121,7 @@ getnews();
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    window.scrollTo(0, scrollhua);
     newslist.style.display = "block";
   }
 };

@@ -196,6 +196,7 @@ main {
   text-decoration: none;
   cursor: pointer;
 }
+
 .btnpagi {
   padding: 1rem 0 2rem 0;
   width: 20%;
@@ -203,6 +204,7 @@ main {
   display: flex;
   gap: 8px;
 }
+
 button {
   display: block;
   margin: auto;
@@ -221,8 +223,11 @@ button {
 }
 
 .spinner-box {
-  width: 300px;
-  height: 300px;
+  /* margin-top: 3rem; */
+  /* position: fixed; */
+  scroll-behavior: none;
+  width: 400px;
+  height: 80dvh;
   margin: auto;
   display: flex;
   align-items: center;
