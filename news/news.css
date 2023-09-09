@@ -45,6 +45,14 @@ body::-webkit-scrollbar {
   top: 0;
   left: 0;
 }
+@media all and (min-width: 200px) and (max-width: 450px) {
+  .title {
+    font-size: 32px;
+  }
+  .navbar video {
+    height: 50px;
+  }
+}
 
 main {
   height: 100dvh;
@@ -52,6 +60,21 @@ main {
 #newslist {
   margin: auto;
   width: 60dvw;
+}
+@media all and (min-width: 710px) and (max-width: 1100px) {
+  #newslist {
+    width: 70dvw;
+  }
+}
+@media all and (min-width: 450px) and (max-width: 710px) {
+  #newslist {
+    width: 80dvw;
+  }
+}
+@media all and (min-width: 200px) and (max-width: 450px) {
+  #newslist {
+    width: 90dvw;
+  }
 }
 #newslist > div {
   margin: 3rem 0;
