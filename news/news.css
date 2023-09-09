@@ -244,6 +244,23 @@ button {
     rgb(28, 49, 165)
   );
 }
+@media all and (min-width: 200px) and (max-width: 710px) {
+  .btnpagi {
+    padding: 0.5rem 0 0.1rem 0;
+    width: 50%;
+    margin: auto;
+    display: flex;
+    gap: 8px;
+  }
+  button {
+    margin: auto;
+    width: fit-content;
+    font-family: "League Spartan", sans-serif;
+    font-size: 1rem;
+    color: azure;
+    padding: 0.2rem 0.5rem;
+  }
+}
 
 .spinner-box {
   /* margin-top: 3rem; */
