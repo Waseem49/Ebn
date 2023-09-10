@@ -25,15 +25,12 @@ function user() {
   registerpassword.value = "";
   loginemail.value = "";
   loginpassword.value = "";
-  console.log(logedinuser);
-  console.log(logedinuser[0]);
   logedinuser[0]
     ? (loginbtn.textContent = "Logout")
     : (loginbtn.textContent = "Login");
 }
 user();
 console.log(logedinuser);
-
 function loginformmsg() {
   Crendeitialmsg.style.display = "flex";
   Crendeitialmsg.textContent = "lets login";
@@ -41,14 +38,18 @@ function loginformmsg() {
     Crendeitialmsg.textContent = "";
   }, 2500);
 }
+
 function loginsuccmsg() {
   Crendeitialmsg.style.display = "flex";
   Crendeitialmsg.textContent = "Login Successfully";
   Crendeitialmsg.style.color = "green";
+  loginbtn.textContent === "Logout";
   setTimeout(() => {
     Crendeitialmsg.textContent = "";
+    authentication.style.display = "none";
   }, 2500);
 }
+
 function loginnotsuccmsg() {
   Crendeitialmsg.style.display = "flex";
   Crendeitialmsg.textContent = "wrong credentials";
@@ -287,9 +288,13 @@ const arrowup = document.querySelector("#arrow_up");
 arrowup.addEventListener("click", () => {
   window.scrollTo(0, 0);
 });
+
 if (loginbtn.textContent === "Logout") {
   loginbtn.addEventListener("click", () => {
-    logedinuser.length == 0;
+    logedinuser.length = 0;
+    localStorage.setItem("logedinuser", JSON.stringify(logedinuser));
+    // loginbtn.textContent === "Login";
+    location.reload();
     user();
   });
 } else {
@@ -297,6 +302,7 @@ if (loginbtn.textContent === "Logout") {
     registerform.style.display = "none";
     authentication.style.display = "flex";
     loginformmsg();
+    user();
   });
 }
 registerbtn.addEventListener("click", () => {
@@ -381,9 +387,9 @@ loginuserbtn.addEventListener("click", (e) => {
       if (
         useralreadyexist[0].registerpassword === userLogindetails.loginpassword
       ) {
-        loginsuccmsg();
         localStorage.setItem("logedinuser", JSON.stringify(useralreadyexist));
-        authentication.style.display = "none";
+        location.reload();
+        loginsuccmsg();
       } else {
         loginnotsuccmsg();
       }

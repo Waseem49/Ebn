@@ -21,8 +21,12 @@ const groceries = document.querySelector("#groceries");
 const priceRange = document.getElementById("priceRange");
 const priceValue = document.getElementById("priceValue");
 const maxPriceValue = document.getElementById("maxPriceValue");
+
+//--------------userauth----------------------------------------------------
+let logedinuser = JSON.parse(localStorage.getItem("logedinuser")) || [];
+console.log(logedinuser);
 //--------------addtocart--------------------------------
-var cartitem = JSON.parse(localStorage.getItem("cartitem")) || [];
+let cartitem = JSON.parse(localStorage.getItem("cartitem")) || [];
 const cartquantity = document.querySelector("#cartquantity");
 const carticon = document.querySelector("#carttbtn");
 const cartt = document.querySelector("#cartt");
@@ -31,6 +35,7 @@ const shadow = document.querySelector("#shadow");
 const pricespan = document.getElementById("price");
 const checkoutbtn = document.querySelector("#checkoutbtn");
 
+cartitem = cartitem.filter((el) => el?._id === logedinuser[0]?._id);
 let price = 0;
 function cartPrice() {
   price = cartitem.reduce((acc, el) => {
@@ -65,11 +70,12 @@ function updateCartDisplay() {
     e.stopPropagation();
   });
   cartlist.innerHTML = "";
-
+  // const newcart = cartitem.filter((el) => el._id === logedinuser[0]._id);
+  // console.log(cartitem);
   cartitem.forEach((el) => {
     const cartdivinnerhtml = `
       <div>
-        <div>
+        <div>s
           <h3>${el.title.substring(0, 18)}</h3>
           <h4>Price: $${el.price}</h4>
         </div>
@@ -196,14 +202,21 @@ function displayProducts(data) {
       addtocartbtn.textContent = "Add to Cart";
 
       addtocartbtn.addEventListener("click", () => {
-        const productexist = cartitem.filter((pl) => pl.id === el.id);
-        if (productexist.length === 0) {
-          cartitem.push(el);
-          cartquantity.textContent = cartitem.length;
-          localStorage.setItem("cartitem", JSON.stringify(cartitem));
-          showToast();
+        const { _id } = logedinuser[0];
+        // console.log(_id);
+        if (!logedinuser.length == 0) {
+          const productexist = cartitem.filter((pl) => pl.id === el.id);
+          console.log(productexist);
+          if (productexist.length === 0) {
+            cartitem.push({ ...el, _id });
+            cartquantity.textContent = cartitem.length;
+            localStorage.setItem("cartitem", JSON.stringify(cartitem));
+            showToast();
+          } else {
+            showToast("added");
+          }
         } else {
-          showToast("added");
+          alert("Please login first");
         }
       });
     });
