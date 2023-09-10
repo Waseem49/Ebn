@@ -30,7 +30,7 @@
           <li><a href="#about-section">About</a></li>
           <li><a href="./news/news.html">News</a></li>
         </ul>
-        <li>Login</li>
+        <li id="loginbtn">Login</li>
       </nav>
       <!-- Navbar-end -->
     </header>
@@ -223,6 +223,28 @@
     <section id="copyright">
       <p>Copyright ©ebn. All rights reserved.</p>
       <img id="arrow_up" src="./assets/icons/arrow_up_icon.svg" alt="" />
+    </section>
+    <section id="authentication">
+      <div id="loginform">
+        <h2>USER LOGIN</h2>
+        <form>
+          <input type="text" placeholder="example@gmail.com" id="loginemail" required/>
+          <input type="text" placeholder="Password" id="loginpassword" required/>
+          <p><span id="Crendeitialmsg"></span> <span id="registerbtn">create account</span></p>
+          <button id="loginuserbtn">Login</button>
+          <button>Login with Google</button>
+        </form>
+      </div>
+      <div id="registerform">
+        <h2>USER REGISTER</h2>
+        <form>
+          <input type="text" placeholder="User Name" id="registerusername" required></input>
+          <input type="email" placeholder="example@gmail.com" id="registeremail" required/>
+          <input type="password" placeholder="Password" id="registerpassword" required/>
+          <p id="userexistmsg"></p>
+          <button id="registeruserbtn">Register</button>
+        </form>
+      </div>
     </section>
   </body>
 </html>

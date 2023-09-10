@@ -1,3 +1,63 @@
+const authentication = document.getElementById("authentication");
+const loginbtn = document.getElementById("loginbtn");
+authentication.style.display = "none";
+const registerform = document.querySelector("#registerform");
+registerform.style.display = "none";
+const loginform = document.querySelector("#loginform");
+const registerbtn = document.querySelector("#registerbtn");
+const registerusername = document.querySelector("#registerusername");
+const registeremail = document.querySelector("#registeremail");
+const registerpassword = document.querySelector("#registerpassword");
+const registeruserbtn = document.querySelector("#registeruserbtn");
+const userexistmsg = document.querySelector("#userexistmsg");
+const Crendeitialmsg = document.querySelector("#Crendeitialmsg");
+userexistmsg.style.display = "none";
+const loginemail = document.querySelector("#loginemail");
+const loginpassword = document.querySelector("#loginpassword");
+const loginuserbtn = document.querySelector("#loginuserbtn");
+let users = JSON.parse(localStorage.getItem("users")) || [];
+let logedinuser = JSON.parse(localStorage.getItem("logedinuser")) || [];
+function user() {
+  users = JSON.parse(localStorage.getItem("users")) || [];
+  logedinuser = JSON.parse(localStorage.getItem("logedinuser")) || [];
+  registerusername.value = "";
+  registeremail.value = "";
+  registerpassword.value = "";
+  loginemail.value = "";
+  loginpassword.value = "";
+  console.log(logedinuser);
+  console.log(logedinuser[0]);
+  logedinuser[0]
+    ? (loginbtn.textContent = "Logout")
+    : (loginbtn.textContent = "Login");
+}
+user();
+console.log(logedinuser);
+
+function loginformmsg() {
+  Crendeitialmsg.style.display = "flex";
+  Crendeitialmsg.textContent = "lets login";
+  setTimeout(() => {
+    Crendeitialmsg.textContent = "";
+  }, 2500);
+}
+function loginsuccmsg() {
+  Crendeitialmsg.style.display = "flex";
+  Crendeitialmsg.textContent = "Login Successfully";
+  Crendeitialmsg.style.color = "green";
+  setTimeout(() => {
+    Crendeitialmsg.textContent = "";
+  }, 2500);
+}
+function loginnotsuccmsg() {
+  Crendeitialmsg.style.display = "flex";
+  Crendeitialmsg.textContent = "wrong credentials";
+  Crendeitialmsg.style.color = "red";
+  setTimeout(() => {
+    Crendeitialmsg.textContent = "";
+  }, 2500);
+}
+
 //---------------------- carousel-start
 const carouselImages = [
   "https://media.istockphoto.com/id/1051616786/photo/digital-marketing-businessman-working-with-laptop-computer-tablet-and-smart-phone-modern.jpg?s=612x612&w=0&k=20&c=J2A6-q3RtqbISouQVBgpYtI1Ft9KeVsANUFHgG4Olbc=",
@@ -191,7 +251,7 @@ function fetchNewsData() {
     })
     .catch((error) => {
       console.error("Error fetching news data:", error);
-      throw error; 
+      throw error;
     });
 }
 
@@ -223,10 +283,113 @@ function displayNews() {
 
 displayNews();
 
-
 const arrowup = document.querySelector("#arrow_up");
 arrowup.addEventListener("click", () => {
   window.scrollTo(0, 0);
 });
+if (loginbtn.textContent === "Logout") {
+  loginbtn.addEventListener("click", () => {
+    logedinuser.length == 0;
+    user();
+  });
+} else {
+  loginbtn.addEventListener("click", () => {
+    registerform.style.display = "none";
+    authentication.style.display = "flex";
+    loginformmsg();
+  });
+}
+registerbtn.addEventListener("click", () => {
+  loginform.style.display = "none";
+  registerform.style.display = "flex";
+});
+window.onclick = function (event) {
+  if (event.target === authentication) {
+    authentication.style.display = "none";
+    newslist.style.display = "block";
+    loginform.style.display = "flex";
+    registerform.style.display = "flex";
+  }
+};
 
+registeruserbtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (
+    registerusername.value === "" &&
+    registerpassword.value === "" &&
+    registeremail.value === ""
+  ) {
+    userexistmsg.style.display = "block";
+    userexistmsg.style.color = "red";
+    userexistmsg.textContent = "Please enter all fileds";
+    setTimeout(() => {
+      userexistmsg.style.display = "none";
+    }, 1500);
+  } else {
+    const userRegisterdetails = {
+      _id: registerusername.value + Date.now(),
+      registerusername: registerusername.value,
+      registeremail: registeremail.value,
+      registerpassword: registerpassword.value,
+    };
 
+    const useralreadyexist = users.filter(
+      (el) => el.registeremail === userRegisterdetails.registeremail
+    );
+    if (useralreadyexist.length === 0) {
+      users.push(userRegisterdetails);
+      localStorage.setItem("users", JSON.stringify(users));
+      userexistmsg.style.display = "block";
+      userexistmsg.style.color = "green";
+      userexistmsg.textContent = "Register Successfull";
+      setTimeout(() => {
+        userexistmsg.style.display = "none";
+        registerform.style.display = "none";
+        loginform.style.display = "flex";
+        loginformmsg();
+      }, 2500);
+    } else {
+      userexistmsg.style.display = "block";
+      userexistmsg.style.color = "red";
+      userexistmsg.textContent = "Please try different email";
+      setTimeout(() => {
+        userexistmsg.style.display = "none";
+      }, 2000);
+    }
+    user();
+  }
+});
+
+loginuserbtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (loginpassword.value === "" && loginemail.value === "") {
+    Crendeitialmsg.style.display = "flex";
+    Crendeitialmsg.textContent = "Please enter all fileds";
+    Crendeitialmsg.style.color = "red";
+    setTimeout(() => {
+      Crendeitialmsg.textContent = "";
+    }, 2500);
+  } else {
+    const userLogindetails = {
+      loginemail: loginemail.value,
+      loginpassword: loginpassword.value,
+    };
+    const useralreadyexist = users.filter(
+      (el) => el.registeremail === userLogindetails.loginemail
+    );
+    if (!useralreadyexist.length == 0) {
+      if (
+        useralreadyexist[0].registerpassword === userLogindetails.loginpassword
+      ) {
+        loginsuccmsg();
+        localStorage.setItem("logedinuser", JSON.stringify(useralreadyexist));
+        authentication.style.display = "none";
+      } else {
+        loginnotsuccmsg();
+      }
+    } else {
+      loginnotsuccmsg();
+    }
+    user();
+  }
+});
