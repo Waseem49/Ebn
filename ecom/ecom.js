@@ -2,6 +2,8 @@
 const api = "https://mock-api-6jin.onrender.com/products";
 const product_list = document.querySelector("#product_list");
 // ---------Paginations--------------------------------
+const btnpagi = document.querySelector(".btnpagi");
+btnpagi.style.display = "none";
 const prevbtn = document.querySelector("#prevbtn");
 const page = document.querySelector("#page");
 const nextbtn = document.querySelector("#nextbtn");
@@ -136,6 +138,7 @@ async function fetchproducts() {
   try {
     const response = await fetch(api);
     const json = await response.json();
+    btnpagi.style.display = "flex";
     let data = [...json];
 
     data = data.filter((product) => product.price <= selectedPrice);
@@ -202,7 +205,7 @@ function displayProducts(data) {
       addtocartbtn.textContent = "Add to Cart";
 
       addtocartbtn.addEventListener("click", () => {
-        const { _id } = logedinuser[0];
+        const _id = logedinuser[0]?._id;
         // console.log(_id);
         if (!logedinuser.length == 0) {
           const productexist = cartitem.filter((pl) => pl.id === el.id);
@@ -216,7 +219,7 @@ function displayProducts(data) {
             showToast("added");
           }
         } else {
-          alert("Please login first");
+          showToast("Please login first");
         }
       });
     });
@@ -288,18 +291,30 @@ priceRange.addEventListener("input", () => {
   fetchproducts();
 });
 
-function showToast(added) {
-  if (added !== "added") {
-    toast.textContent = "Product Added Successfully";
+function showToast(val) {
+  if (val === "added") {
+    toast.textContent = "Already in Cart";
     toast.style.display = "block";
+    setTimeout(() => {
+      toast.style.display = "none";
+    }, 2000);
+  } else if (val === "Please login first") {
+    toast.style.display = "block";
+    toast.textContent = "Please login first";
     setTimeout(() => {
       toast.style.display = "none";
     }, 2000);
   } else {
     toast.style.display = "block";
-    toast.textContent = "Already in Cart";
+    toast.textContent = "Product Added Successfully";
     setTimeout(() => {
       toast.style.display = "none";
     }, 2000);
   }
 }
+
+//=============DARKMODE++++++++++++++++
+const darkmode = JSON.parse(localStorage.getItem("darkmode")) || false;
+document.body.style.backgroundColor = darkmode ? "black" : "white";
+document.body.style.color = darkmode ? "white" : "black";
+//============DARKMODE-----------------

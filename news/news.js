@@ -4,12 +4,24 @@ const modalImage = document.getElementById("modal-image");
 const modalBody = document.getElementById("modal-body");
 const closeBtn = document.getElementsByClassName("close")[0];
 const btnpagi = document.querySelector(".btnpagi");
+btnpagi.style.display = "none";
 const page = document.querySelector("#page");
 const prevbtn = document.querySelector("#prevbtn");
 const nextbtn = document.querySelector("#nextbtn");
 const spinner = document.querySelector(".spinner-box");
+const configure = document.querySelectorAll(".configure-core");
 let scrollhua = 0;
 let pagecount = 1;
+
+//=============DARKMODE++++++++++++++++
+const darkmode = JSON.parse(localStorage.getItem("darkmode")) || false;
+document.body.style.backgroundColor = darkmode ? "black" : "white";
+document.body.style.color = darkmode ? "white" : "black";
+configure.forEach((el) => {
+  el.style.backgroundColor = darkmode ? "black" : "white";
+});
+
+//============DARKMODE-----------------
 
 function pageChange() {
   prevbtn.disabled = pagecount === 1;

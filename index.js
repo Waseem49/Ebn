@@ -1,6 +1,7 @@
 const authentication = document.getElementById("authentication");
 const loginbtn = document.getElementById("loginbtn");
 authentication.style.display = "none";
+const darkmode = document.getElementById("darkmode");
 const registerform = document.querySelector("#registerform");
 registerform.style.display = "none";
 const loginform = document.querySelector("#loginform");
@@ -16,6 +17,7 @@ const loginemail = document.querySelector("#loginemail");
 const loginpassword = document.querySelector("#loginpassword");
 const loginuserbtn = document.querySelector("#loginuserbtn");
 let users = JSON.parse(localStorage.getItem("users")) || [];
+
 let logedinuser = JSON.parse(localStorage.getItem("logedinuser")) || [];
 function user() {
   users = JSON.parse(localStorage.getItem("users")) || [];
@@ -30,7 +32,7 @@ function user() {
     : (loginbtn.textContent = "Login");
 }
 user();
-console.log(logedinuser);
+
 function loginformmsg() {
   Crendeitialmsg.style.display = "flex";
   Crendeitialmsg.textContent = "lets login";
@@ -398,4 +400,19 @@ loginuserbtn.addEventListener("click", (e) => {
     }
     user();
   }
+});
+
+//===========darkmode============
+let justifycontent = JSON.parse(localStorage.getItem("darkmode")) || false;
+document.body.style.backgroundColor = justifycontent ? "black" : "white";
+document.body.style.color = justifycontent ? "white" : "black";
+darkmode.style.justifyContent = justifycontent ? "flex-end" : "flex-start";
+darkmode.addEventListener("click", () => {
+  justifycontent = !justifycontent;
+  document.body.style.backgroundColor = justifycontent ? "black" : "white";
+  document.body.style.color = justifycontent ? "white" : "black";
+  darkmode.style.justifyContent = justifycontent ? "flex-end" : "flex-start";
+  justifycontent
+    ? localStorage.setItem("darkmode", true)
+    : localStorage.removeItem("darkmode");
 });
