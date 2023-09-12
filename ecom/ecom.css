@@ -170,7 +170,7 @@ h4 {
   justify-content: center;
   align-items: center;
   font-family: "Cormorant", serif;
-  background-color: rgba(137, 145, 183, 0.551);
+  background-color: #3771cf58;
 }
 #cartt > :nth-child(4) button {
   font-size: 20px;
@@ -195,7 +195,7 @@ h4 {
   top: 2.5rem;
   height: 100dvh;
   width: 80dvw;
-  background-color: rgba(137, 145, 183, 0.551);
+  background-color: #3771cf58;
 }
 #main_sec {
   display: flex;

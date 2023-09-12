@@ -295,12 +295,12 @@ if (loginbtn.textContent === "Logout") {
   loginbtn.addEventListener("click", () => {
     logedinuser.length = 0;
     localStorage.setItem("logedinuser", JSON.stringify(logedinuser));
-    // loginbtn.textContent === "Login";
-    location.reload();
+    window.scrollTo(0, 0);
     user();
   });
 } else {
   loginbtn.addEventListener("click", () => {
+    window.scrollTo(0, 0);
     registerform.style.display = "none";
     authentication.style.display = "flex";
     loginformmsg();
