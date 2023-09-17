@@ -641,6 +641,9 @@ iframe {
   height: calc(100dvh - 3rem);
   background-color: #3771cf58;
 }
+#authentication h3 {
+  padding: 1rem;
+}
 #authentication > div {
   display: flex;
   flex-direction: column;
@@ -649,6 +652,7 @@ iframe {
   background-color: #fff;
   padding: 1rem 2rem 2rem;
   border-radius: 3rem;
+  color: #180b0b;
 }
 
 #authentication > div > form {
