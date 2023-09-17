@@ -77,7 +77,7 @@ function updateCartDisplay() {
   cartitem.forEach((el) => {
     const cartdivinnerhtml = `
       <div>
-        <div>s
+        <div>
           <h3>${el.title.substring(0, 18)}</h3>
           <h4>Price: $${el.price}</h4>
         </div>

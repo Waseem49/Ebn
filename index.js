@@ -323,17 +323,10 @@ window.onclick = function (event) {
 registeruserbtn.addEventListener("click", (e) => {
   e.preventDefault();
   if (
-    registerusername.value === "" &&
-    registerpassword.value === "" &&
-    registeremail.value === ""
+    registerusername.value !== "" &&
+    registerpassword.value !== "" &&
+    registeremail.value !== ""
   ) {
-    userexistmsg.style.display = "block";
-    userexistmsg.style.color = "red";
-    userexistmsg.textContent = "Please enter all fileds";
-    setTimeout(() => {
-      userexistmsg.style.display = "none";
-    }, 1500);
-  } else {
     const userRegisterdetails = {
       _id: registerusername.value + Date.now(),
       registerusername: registerusername.value,
@@ -365,6 +358,13 @@ registeruserbtn.addEventListener("click", (e) => {
       }, 2000);
     }
     user();
+  } else {
+    userexistmsg.style.display = "block";
+    userexistmsg.style.color = "red";
+    userexistmsg.textContent = "Please enter all fileds";
+    setTimeout(() => {
+      userexistmsg.style.display = "none";
+    }, 1500);
   }
 });
 
