@@ -1,6 +1,6 @@
 const authentication = document.getElementById("authentication");
-const loginbtn = document.getElementById("loginbtn");
 authentication.style.display = "none";
+const loginbtn = document.getElementById("loginbtn");
 const darkmode = document.getElementById("darkmode");
 const registerform = document.querySelector("#registerform");
 registerform.style.display = "none";
