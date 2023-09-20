@@ -15,7 +15,7 @@
   <img src="https://img.shields.io/badge/Vercel-00C7B7?style=for-the-badge&logo=vercel&logoColor=white" alt="vercel" />
 </p>
 
-<h3 align="center"><a href="https://waseem49.vercel.app/"><strong>Want to see live preview »</strong></a></h3>
+<h3 align="center"><a href="https://ebn-waseem49.vercel.app/"><strong>Want to see live preview »</strong></a></h3>
 
 <br />
 <br />
@@ -63,5 +63,22 @@ This project is just for educational purpose.
 <h1> 🏷️ Cart Modal with product </h1>
 <img src="https://github.com/Waseem49/ebn/assets/111652485/3d3cc425-7b82-4cfc-bfef-ed40ecf065f5" width="auto" alt="Cart Modal with product"/>
 <br />
+<h1> 🏷️ News Page  </h1>
+<img src="https://github.com/Waseem49/ebn/assets/111652485/a3bc5e7e-ba7d-40aa-98b7-5154ad0486d4" width="auto" alt="News Page "/>
+<br />
+
+## Contact
+
+If you want to contact me, you can reach me through below handles. <br />
+
+[![linkedin](https://img.shields.io/badge/Md_Waseem_Akram-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/waseem49/)
+[![GitHub](https://img.shields.io/badge/Md_Waseem_Akram-20232A?style=for-the-badge&logo=Github&logoColor=white)](https://github.com/Waseem49)
 
 
+
+© 2023 Md Waseem Akram
+
+
+
+## Show your support
+Give a ⭐️ if you like this project!
