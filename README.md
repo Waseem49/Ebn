@@ -1,6 +1,6 @@
 
 <h1 align="center">Ebn</h1>
-<h3 align="center">It's a showcase of my frontend skill application with all the major functionalities</h3>
+<h3 align="center">Ebn is a comprehensive showcase of my frontend development skills, designed to demonstrate my expertise in creating engaging web experiences. It comprises three main sections: E-commerce, News, and Blog</h3>
 <br />
 <h2 align="center">🖥️ Tech Stack</h2>
 <p align="center">
