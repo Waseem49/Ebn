@@ -290,12 +290,16 @@ const arrowup = document.querySelector("#arrow_up");
 arrowup.addEventListener("click", () => {
   window.scrollTo(0, 0);
 });
+logedinuser[0]
+  ? (loginbtn.textContent = "Logout")
+  : (loginbtn.textContent = "Login");
 
 if (loginbtn.textContent === "Logout") {
   loginbtn.addEventListener("click", () => {
     logedinuser.length = 0;
     localStorage.setItem("logedinuser", JSON.stringify(logedinuser));
     window.scrollTo(0, 0);
+    location.reload();
     user();
   });
 } else {

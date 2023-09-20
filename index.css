@@ -632,6 +632,7 @@ iframe {
 }
 
 #authentication {
+  display: none;
   position: absolute;
   top: 3rem;
   right: 0rem;
