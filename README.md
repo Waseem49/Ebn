@@ -11,12 +11,9 @@
 </p>
 <h4 align="center">Deployed On:</h4>
 <p align="center">  
-<!--   <a href="https://ebn-waseem49.vercel.app/" blink> </a> -->
   <img src="https://img.shields.io/badge/Vercel-00C7B7?style=for-the-badge&logo=vercel&logoColor=white" alt="vercel" />
 </p>
-
-<h3 align="center"><a href="https://ebn-waseem49.vercel.app/"><strong>Want to see live preview »</strong></a></h3>
-
+<h3 align="center"><a href="https://ebn-waseem49.vercel.app" target="_blank"><strong>Want to see live preview »</strong></a></h3>
 <br />
 <br />
 It’s Solo project where I've used tect-stack like HTML, CSS, JavaScrit to make the Ebn(E-Commerce, Blog, News) with a good user-interface its Fully Responsive.It has three sections E-Commerce, Blog and News.
@@ -25,7 +22,6 @@ In Blog and news section user can read blog and news and keep himself updated.
 This project is just for educational purpose.
 <br />
 <br />
-
 
 ## 🚀 User Can Do
 - Login and Signup User Account
@@ -51,30 +47,23 @@ This project is just for educational purpose.
 <h1> 🏷️ Landing page</h1>
 <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/111652485/269005150-0cc316f7-ee77-4893-a5bc-250d497a66f2.jpg" width="auto" alt="Home page"/>
 <br />
-
 <h1> 🏷️ Login page </h1>
 <img src="https://github.com/Waseem49/ebn/assets/111652485/1f48680a-831e-42fc-80b6-1033f0debc2f" width="auto" alt="Login page"/>
-
 <br />
 <h1> 🏷️ Product-List page </h1>
 <img src="https://github.com/Waseem49/ebn/assets/111652485/ec8dde08-349c-4e8e-b292-6c893c015c2f" width="auto" alt="Product-List page"/>
 <br />
-
 <h1> 🏷️ Cart Modal when empty </h1>
 <img src="https://github.com/Waseem49/ebn/assets/111652485/4be488cf-ac86-45bc-984d-b7faf0d28edd" width="auto" alt="Cart Modal when empty"/>
 <br />
-
 <h1> 🏷️ Cart Modal with product </h1>
 <img src="https://github.com/Waseem49/ebn/assets/111652485/3d3cc425-7b82-4cfc-bfef-ed40ecf065f5" width="auto" alt="Cart Modal with product"/>
 <br />
-
 <h1> 🏷️ News Page  </h1>
 <img src="https://github.com/Waseem49/ebn/assets/111652485/a3bc5e7e-ba7d-40aa-98b7-5154ad0486d4" width="auto" alt="News Page "/>
-
 <br />
 <br />
 <h2 >Contact</h2>
-
 If you want to contact me, you can reach me through below handles. <br />
 
 [![linkedin](https://img.shields.io/badge/Md_Waseem_Akram-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/waseem49/)
