@@ -143,7 +143,7 @@ window.onload = function () {
 };
 
 // --------------------product fetching --------------------
-const api = "https://mock-api-6jin.onrender.com/products";
+const api = "https://mock-api-2fkx.onrender.com/products";
 const listdiv = document.createElement("listproducts");
 
 // wishlist
@@ -210,7 +210,7 @@ function displayproducts(data) {
       if (productToAdd) {
         try {
           const response = await fetch(
-            "https://mock-api-6jin.onrender.com/ebnwishlist",
+            "https://mock-api-2fkx.onrender.com/ebnwishlist",
             {
               method: "POST",
               headers: {
@@ -245,7 +245,7 @@ async function skelprod() {
 skelprod();
 
 // ====================newssection =================
-const newsapi = "https://mock-api-6jin.onrender.com/ebnnews";
+const newsapi = "https://mock-api-2fkx.onrender.com/ebnnews";
 
 function fetchNewsData() {
   return fetch(newsapi)

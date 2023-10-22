@@ -1,5 +1,5 @@
 // ===================data-fatching =================
-const api = "https://mock-api-6jin.onrender.com/products";
+const api = "https://mock-api-2fkx.onrender.com/products";
 const product_list = document.querySelector("#product_list");
 // ---------Paginations--------------------------------
 const btnpagi = document.querySelector(".btnpagi");
