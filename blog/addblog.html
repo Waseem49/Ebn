@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../assets/icons/logo.png"
+      type="image/x-icon" />
+    <title>Add blog</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+
+      #postblog {
+        max-width: 400px;
+        width: 100%;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      #postblog h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      #postblog input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      #postblog input[type="submit"] {
+        font-family: "League Spartan", sans-serif;
+        font-size: 1rem;
+        color: azure;
+        padding: 0.4rem 1rem;
+        border: none;
+        border-radius: 1rem;
+        background-image: linear-gradient(
+          to right,
+          rgba(36, 34, 34, 0.848),
+          rgba(28, 49, 165, 0.792)
+        );
+        cursor: pointer;
+      }
+
+      #postblog input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Add Blog</h1>
+    <form id="postblog">
+      <input type="text" placeholder="Image Url" required />
+      <input type="text" placeholder="Title" required />
+      <input type="text" placeholder="Descriptions" required />
+      <input type="text" placeholder="Genre" required />
+      <input type="submit" />
+    </form>
+    <script>
+      const url = "https://mock-api-2fkx.onrender.com/ebnblog";
+      const logedinuser = JSON.parse(localStorage.getItem("logedinuser")) || [];
+      const blogform = document.querySelector("#postblog");
+      blogform.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const imgurl = e.target[0].value;
+        const title = e.target[0].value;
+        const description = e.target[0].value;
+        const genre = e.target[0].value;
+        const blogvalue = {
+          imgurl,
+          title,
+          description,
+          genre,
+          user: logedinuser[0].registerusername,
+        };
+        try {
+          const res = await fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(blogvalue),
+          });
+          if (res.ok === true) {
+            alert("Blog Added Successfully!");
+            window.location.href = "./blog.html";
+          } else {
+            console.error("Failed to post blog!");
+          }
+        } catch (error) {
+          console.error("Error adding to blog!", error);
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 // ===================data-fatching =================
-const api = "https://mock-api-2fkx.onrender.com/products";
+const api = "https://dummyjson.com/products?limit=100";
 const product_list = document.querySelector("#product_list");
 // ---------Paginations--------------------------------
 const btnpagi = document.querySelector(".btnpagi");
@@ -139,7 +139,7 @@ async function fetchproducts() {
     const response = await fetch(api);
     const json = await response.json();
     btnpagi.style.display = "flex";
-    let data = [...json];
+    let data = [...json.products];
 
     data = data.filter((product) => product.price <= selectedPrice);
 
@@ -172,6 +172,7 @@ async function fetchproducts() {
 fetchproducts();
 
 function updateSelectedCategories(category) {
+  currentPage = 1;
   const index = selectedCategories.indexOf(category);
   if (index === -1) {
     selectedCategories.push(category);
@@ -209,7 +210,6 @@ function displayProducts(data) {
         // console.log(_id);
         if (!logedinuser.length == 0) {
           const productexist = cartitem.filter((pl) => pl.id === el.id);
-          console.log(productexist);
           if (productexist.length === 0) {
             cartitem.push({ ...el, _id });
             cartquantity.textContent = cartitem.length;

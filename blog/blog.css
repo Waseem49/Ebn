@@ -55,11 +55,28 @@ section {
   text-align: center;
   font-size: 2em;
   padding-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .news .titletext span {
   color: var(--secondary);
 }
-
+.news .titletext button {
+  margin-left: 1rem;
+  font-family: "League Spartan", sans-serif;
+  font-size: 1rem;
+  color: azure;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  background-image: linear-gradient(
+    to right,
+    rgba(36, 34, 34, 0.848),
+    rgba(28, 49, 165, 0.792)
+  );
+  cursor: pointer;
+}
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -85,6 +102,7 @@ img {
   box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.1);
   border-radius: 1em;
   background: #fff;
+  cursor: pointer;
 }
 
 .card__body {
@@ -112,21 +130,10 @@ img {
   text-transform: capitalize;
 }
 
-.card__footer {
-  display: flex;
-  padding: 1rem;
-  margin-top: auto;
-}
-
-.user {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.user__image {
-  border-radius: 50%;
-}
-
-.user__info > small {
-  color: #666;
+.footer {
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px;
+  background-color: #135085ad;
+  color: white;
 }
