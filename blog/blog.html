@@ -1,15 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="../assets/icons/logo.png"
-      type="image/x-icon" />
-    <title>Blog</title>
-  </head>
-  <body>
-    <h1>Blog Page Loading...</h1>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="blog.css">
+  <script src="blog.js" type="module" defer></script>
+</head>
+
+<body>
+  <!--HOME PAGE-->
+  <div class="banner" id="banner">
+    <div class="imgbx">
+      <img src="https://i.postimg.cc/dtLWZmwx/pexels-cottonbro-studio-9656754.jpg" alt="">
+    </div>
+    <div class="nav">
+      <a href="../index.html"><img width="45rem" src="../assets/icons/logo.png" alt="logo" /></a>
+      <h1>BLOGS</h1>
+    </div>
+  </div>
+  <!--NEWS SECTION-->
+  <section class="news" id="news">
+    <div class="titletext">
+      <h1>Blogs <span>Feed</span></h1>
+    </div>
+    <div class="container">
+      <div class="card">
+        <div class="card__header">
+          <img src="https://i.postimg.cc/gkCk3bbx/pexels-cottonbro-studio-3944425.jpg" alt="card__image"
+            class="card__image" width="600">
+        </div>
+        <div class="card__body">
+          <span class="tag">News</span>
+          <h4>Trending Tech Products</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis molestiae non nemo doloribus.
+            Doloremque, nihil! At ea atque quidem!</p>
+        </div>
+        <div class="card__footer">
+          <div class="user">
+            <img src="https://i.pravatar.cc/40" alt="user__image" class="user__image">
+            <div class="user__info">
+              <h5>User 1</h5>
+              <small>2h ago</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card__header">
+          <img src="https://i.postimg.cc/x1LjRp9t/pexels-cottonbro-studio-3944454.jpg" alt="card__image"
+            class="card__image" width="600">
+        </div>
+        <div class="card__body">
+          <span class="tag">News</span>
+          <h4>Newly Introduced AI Model</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis molestiae non nemo doloribus.
+            Doloremque, nihil! At ea atque quidem!</p>
+        </div>
+        <div class="card__footer">
+          <div class="user">
+            <img src="https://i.pravatar.cc/40?img=9" alt="user__image" class="user__image">
+            <div class="user__info">
+              <h5>User 2</h5>
+              <small>Yesterday</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
 </html>
